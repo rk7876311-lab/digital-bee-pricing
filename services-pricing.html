@@ -26,6 +26,9 @@
       --agency-glow: rgba(79, 142, 247, 0.25);
       --studio-accent: #E8557A;
       --studio-glow: rgba(232, 85, 122, 0.25);
+      --appdev-accent: #9B6BF7;
+      --appdev-glow: rgba(155, 107, 247, 0.25);
+      --appdev-blue: #4F8EF7;
       --radius: 16px;
       --radius-sm: 10px;
     }
@@ -225,6 +228,13 @@
       box-shadow: 0 0 30px rgba(245, 184, 0, 0.4);
     }
 
+    .tab-btn.active-appdev {
+      background: linear-gradient(135deg, var(--appdev-blue), var(--appdev-accent));
+      border-color: transparent;
+      color: #fff;
+      box-shadow: 0 0 30px rgba(155, 107, 247, 0.4);
+    }
+
     /* ─── SECTION HEADER ─── */
     .section {
       margin-bottom: 80px;
@@ -262,6 +272,12 @@
       background: rgba(232, 85, 122, 0.15);
       color: var(--studio-accent);
       border: 1px solid rgba(232, 85, 122, 0.3);
+    }
+
+    .badge-appdev {
+      background: rgba(155, 107, 247, 0.15);
+      color: var(--appdev-accent);
+      border: 1px solid rgba(155, 107, 247, 0.3);
     }
 
     .section-title {
@@ -317,6 +333,11 @@
     .pkg-card.studio:hover {
       box-shadow: 0 20px 60px var(--studio-glow);
       border-color: rgba(232, 85, 122, 0.4);
+    }
+
+    .pkg-card.appdev:hover {
+      box-shadow: 0 20px 60px var(--appdev-glow);
+      border-color: rgba(155, 107, 247, 0.4);
     }
 
     .pkg-card.featured {
@@ -498,6 +519,16 @@
       border-color: rgba(232, 85, 122, 0.35);
       background: rgba(232, 85, 122, 0.05);
     }
+
+    .svc-card.appdev:hover {
+      border-color: rgba(155, 107, 247, 0.35);
+      background: rgba(155, 107, 247, 0.05);
+    }
+
+    .svc-price.appdev { color: var(--appdev-accent); }
+    .check.appdev { color: var(--appdev-accent); }
+    .amount.appdev { color: var(--appdev-accent); }
+    .price-cell.appdev { color: var(--appdev-accent); }
 
     .svc-card .svc-name {
       font-size: 13px;
@@ -760,6 +791,7 @@
       <button class="tab-btn active-both" onclick="showSection('both', this)">🐝 All Services</button>
       <button class="tab-btn" onclick="showSection('agency', this)">⚡ Agency Division</button>
       <button class="tab-btn" onclick="showSection('studio', this)">🎬 Studio Division</button>
+      <button class="tab-btn" onclick="showSection('appdev', this)">📱 App Development</button>
     </div>
 
     <!-- ══════════════════════════════════════════ -->
@@ -954,6 +986,161 @@
       </div>
 
     </div><!-- /section-agency -->
+
+    <div class="divider" id="divider-appdev"></div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- ═══ DIVISION 3 — APP DEVELOPMENT      ═══ -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section" id="section-appdev">
+
+      <div class="section-header animate-1">
+        <div class="division-badge badge-appdev">📱 Specialty</div>
+        <div>
+          <div class="section-title">App Development</div>
+        </div>
+        <div class="section-sub">Mobile · Web Apps · E-Commerce</div>
+      </div>
+
+      <!-- PACKAGES -->
+      <div class="packages-grid animate-2">
+
+        <!-- LAUNCH APP -->
+        <div class="pkg-card appdev">
+          <div class="pkg-icon" style="background:rgba(79,142,247,0.12)">🚀</div>
+          <div class="pkg-name">Launch App</div>
+          <div class="pkg-tagline">MVP for startups to validate their idea fast with a quality app on iOS & Android.</div>
+          <div class="pkg-price">
+            <div class="starting">Starting at</div>
+            <div class="amount appdev"><span class="currency">₹</span>60,000</div>
+            <div class="period">one-time · 4–6 weeks</div>
+          </div>
+          <ul class="pkg-features">
+            <li><span class="check appdev">✦</span> UI/UX Design (10 screens)</li>
+            <li><span class="check appdev">✦</span> React Native (iOS + Android)</li>
+            <li><span class="check appdev">✦</span> User Auth + Firebase Backend</li>
+            <li><span class="check appdev">✦</span> Push Notifications</li>
+            <li><span class="check appdev">✦</span> Basic API Integration</li>
+            <li><span class="check appdev">✦</span> App Store + Play Store Submit</li>
+            <li><span class="check appdev">✦</span> 30-Day Post-Launch Support</li>
+          </ul>
+        </div>
+
+        <!-- GROWTH APP -->
+        <div class="pkg-card appdev featured">
+          <div class="featured-badge">⭐ Most Popular</div>
+          <div class="pkg-icon" style="background:rgba(155,107,247,0.12)">💎</div>
+          <div class="pkg-name">Growth App</div>
+          <div class="pkg-tagline">Feature-rich, scalable app with polished UI, custom backend & payment integration.</div>
+          <div class="pkg-price">
+            <div class="starting">Starting at</div>
+            <div class="amount gold"><span class="currency">₹</span>1,50,000</div>
+            <div class="period">one-time · 8–12 weeks</div>
+          </div>
+          <ul class="pkg-features">
+            <li><span class="check">✦</span> Full UI/UX Design (25+ screens)</li>
+            <li><span class="check">✦</span> React Native or Flutter</li>
+            <li><span class="check">✦</span> Custom Node.js API + Admin Panel</li>
+            <li><span class="check">✦</span> In-App Payments (Razorpay/Stripe)</li>
+            <li><span class="check">✦</span> Real-time Chat & Notifications</li>
+            <li><span class="check">✦</span> Social Login (Google, Apple, FB)</li>
+            <li><span class="check">✦</span> Analytics (Firebase + Mixpanel)</li>
+            <li><span class="check">✦</span> ASO + 60-Day Support</li>
+          </ul>
+        </div>
+
+        <!-- SCALE APP -->
+        <div class="pkg-card appdev">
+          <div class="pkg-icon" style="background:rgba(155,107,247,0.12)">🏆</div>
+          <div class="pkg-name">Scale App</div>
+          <div class="pkg-tagline">Enterprise-grade product with custom architecture, AI features & dedicated team.</div>
+          <div class="pkg-price">
+            <div class="starting">Starting at</div>
+            <div class="amount appdev"><span class="currency">₹</span>3,50,000</div>
+            <div class="period">one-time · 16–24 weeks</div>
+          </div>
+          <ul class="pkg-features">
+            <li><span class="check appdev">✦</span> Native iOS + Native Android</li>
+            <li><span class="check appdev">✦</span> Microservices Cloud Architecture</li>
+            <li><span class="check appdev">✦</span> AI/ML Integration</li>
+            <li><span class="check appdev">✦</span> CI/CD Pipeline + Security Audit</li>
+            <li><span class="check appdev">✦</span> White-labelling Available</li>
+            <li><span class="check appdev">✦</span> Dedicated Project Manager</li>
+            <li><span class="check appdev">✦</span> Load Testing + QA</li>
+            <li><span class="check appdev">✦</span> 6-Month Retainer Support</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- A LA CARTE — APP DEV -->
+      <div class="animate-3">
+        <div class="services-label">À La Carte — App Development Services</div>
+        <div class="services-grid">
+          <div class="svc-card appdev">
+            <div class="svc-name">UI/UX Design Only</div>
+            <div class="svc-price appdev">₹20,000+</div>
+            <div class="svc-note">Figma prototypes</div>
+          </div>
+          <div class="svc-card appdev">
+            <div class="svc-name">React Native App</div>
+            <div class="svc-price appdev">₹60,000+</div>
+            <div class="svc-note">Cross-platform MVP</div>
+          </div>
+          <div class="svc-card appdev">
+            <div class="svc-name">Flutter App</div>
+            <div class="svc-price appdev">₹65,000+</div>
+            <div class="svc-note">Cross-platform MVP</div>
+          </div>
+          <div class="svc-card appdev">
+            <div class="svc-name">iOS Native App</div>
+            <div class="svc-price appdev">₹1,20,000+</div>
+            <div class="svc-note">Per platform</div>
+          </div>
+          <div class="svc-card appdev">
+            <div class="svc-name">Android Native App</div>
+            <div class="svc-price appdev">₹1,00,000+</div>
+            <div class="svc-note">Per platform</div>
+          </div>
+          <div class="svc-card appdev">
+            <div class="svc-name">Web App (Next.js)</div>
+            <div class="svc-price appdev">₹80,000+</div>
+            <div class="svc-note">Per project</div>
+          </div>
+          <div class="svc-card appdev">
+            <div class="svc-name">Custom API / Backend</div>
+            <div class="svc-price appdev">₹25,000+</div>
+            <div class="svc-note">REST / GraphQL</div>
+          </div>
+          <div class="svc-card appdev">
+            <div class="svc-name">AI Chatbot Integration</div>
+            <div class="svc-price appdev">₹30,000+</div>
+            <div class="svc-note">GPT-4 / Gemini</div>
+          </div>
+          <div class="svc-card appdev">
+            <div class="svc-name">Payment Gateway</div>
+            <div class="svc-price appdev">₹8,000+</div>
+            <div class="svc-note">Razorpay / Stripe</div>
+          </div>
+          <div class="svc-card appdev">
+            <div class="svc-name">App Maintenance</div>
+            <div class="svc-price appdev">₹12,000+</div>
+            <div class="svc-note">Per month</div>
+          </div>
+          <div class="svc-card appdev">
+            <div class="svc-name">App Store Optimization</div>
+            <div class="svc-price appdev">₹8,000+</div>
+            <div class="svc-note">ASO for ranking</div>
+          </div>
+          <div class="svc-card appdev">
+            <div class="svc-name">Push Notifications</div>
+            <div class="svc-price appdev">₹10,000+</div>
+            <div class="svc-note">FCM / OneSignal</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /section-appdev -->
 
     <div class="divider" id="divider-mid"></div>
 
@@ -1198,6 +1385,30 @@
             <td>High-growth brands</td>
           </tr>
           <tr>
+            <td>Launch App</td>
+            <td><span style="color:var(--appdev-accent)">App Dev</span></td>
+            <td>React Native MVP</td>
+            <td><span class="price-cell appdev">₹60,000</span></td>
+            <td>One-time</td>
+            <td>Startups / Validation</td>
+          </tr>
+          <tr>
+            <td>Growth App</td>
+            <td><span style="color:var(--appdev-accent)">App Dev</span></td>
+            <td>Full App + Backend + Payments</td>
+            <td><span class="price-cell appdev">₹1,50,000</span></td>
+            <td>One-time</td>
+            <td>Growing products</td>
+          </tr>
+          <tr>
+            <td>Scale App</td>
+            <td><span style="color:var(--appdev-accent)">App Dev</span></td>
+            <td>Enterprise + AI + Native</td>
+            <td><span class="price-cell appdev">₹3,50,000</span></td>
+            <td>One-time</td>
+            <td>Enterprises / Funded</td>
+          </tr>
+          <tr>
             <td>Agency + Studio Combo</td>
             <td><span
                 style="background: linear-gradient(90deg,var(--agency-accent),var(--studio-accent)); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">Both</span>
@@ -1228,32 +1439,48 @@
     function showSection(type, btn) {
       const agencySection = document.getElementById('section-agency');
       const studioSection = document.getElementById('section-studio');
+      const appdevSection = document.getElementById('section-appdev');
       const dividerMid = document.getElementById('divider-mid');
+      const dividerAppdev = document.getElementById('divider-appdev');
       const compareSection = document.getElementById('section-compare');
 
       // Reset all tab buttons
       document.querySelectorAll('.tab-btn').forEach(b => {
-        b.classList.remove('active-agency', 'active-studio', 'active-both');
+        b.classList.remove('active-agency', 'active-studio', 'active-both', 'active-appdev');
       });
 
       if (type === 'both') {
         agencySection.classList.remove('hidden');
         studioSection.classList.remove('hidden');
+        appdevSection.classList.remove('hidden');
         dividerMid.style.display = 'block';
+        dividerAppdev.style.display = 'block';
         compareSection.classList.remove('hidden');
         btn.classList.add('active-both');
       } else if (type === 'agency') {
         agencySection.classList.remove('hidden');
         studioSection.classList.add('hidden');
+        appdevSection.classList.add('hidden');
         dividerMid.style.display = 'none';
+        dividerAppdev.style.display = 'none';
         compareSection.classList.add('hidden');
         btn.classList.add('active-agency');
       } else if (type === 'studio') {
         agencySection.classList.add('hidden');
         studioSection.classList.remove('hidden');
+        appdevSection.classList.add('hidden');
         dividerMid.style.display = 'none';
+        dividerAppdev.style.display = 'none';
         compareSection.classList.add('hidden');
         btn.classList.add('active-studio');
+      } else if (type === 'appdev') {
+        agencySection.classList.add('hidden');
+        studioSection.classList.add('hidden');
+        appdevSection.classList.remove('hidden');
+        dividerMid.style.display = 'none';
+        dividerAppdev.style.display = 'none';
+        compareSection.classList.add('hidden');
+        btn.classList.add('active-appdev');
       }
     }
 
