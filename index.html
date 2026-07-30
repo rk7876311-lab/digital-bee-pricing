@@ -662,6 +662,47 @@
       margin-top: 20px;
     }
 
+    /* ─── APP DEV SPOTLIGHT ─── */
+    .appdev-spotlight {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 20px;
+      background: linear-gradient(135deg, rgba(79,142,247,0.08), rgba(155,107,247,0.06));
+      border: 1px solid rgba(79,142,247,0.25);
+      border-radius: var(--radius);
+      padding: 28px 36px;
+      margin-bottom: 24px;
+      position: relative; overflow: hidden;
+    }
+    .appdev-spotlight::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at left center, rgba(79,142,247,0.08) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .appdev-badge {
+      display: inline-block;
+      background: rgba(79,142,247,0.15); color: #4F8EF7;
+      border: 1px solid rgba(79,142,247,0.25);
+      border-radius: 20px; padding: 4px 14px;
+      font-size: 11px; font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; margin-bottom: 8px;
+    }
+    .appdev-title {
+      font-family: 'Outfit', sans-serif; font-size: 22px; font-weight: 800;
+      margin-bottom: 6px;
+    }
+    .appdev-desc { font-size: 13px; color: var(--text-secondary); max-width: 480px; line-height: 1.6; }
+    .appdev-cta {
+      flex-shrink: 0;
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 13px 26px; border-radius: 50px;
+      background: linear-gradient(135deg, #4F8EF7, #9B6BF7);
+      color: #fff; font-weight: 700; font-size: 14px;
+      text-decoration: none; transition: all 0.3s;
+      box-shadow: 0 6px 20px rgba(79,142,247,0.3);
+      white-space: nowrap;
+    }
+    .appdev-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(79,142,247,0.5); }
+
     /* ─── SECTION VISIBILITY ─── */
     .section {
       transition: opacity 0.4s ease, transform 0.4s ease;
@@ -1209,6 +1250,16 @@
           </tr>
         </tbody>
       </table>
+    </div>
+
+    <!-- ═══ APP DEV SPOTLIGHT ═══ -->
+    <div class="appdev-spotlight">
+      <div class="appdev-left">
+        <div class="appdev-badge">📱 Featured Service</div>
+        <div class="appdev-title">App Development</div>
+        <div class="appdev-desc">iOS, Android, Web Apps &amp; E-Commerce platforms — built to scale. See full packages, tech stack, and process.</div>
+      </div>
+      <a href="app-development.html" class="appdev-cta">View App Dev Pricing →</a>
     </div>
 
     <!-- ═══ FOOTER CTA ═══ -->

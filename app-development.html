@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>App Development Services — Digital Bee Agency</title>
+  <meta name="description" content="Digital Bee Agency offers premium mobile app, web app, and e-commerce development services. Custom iOS, Android, Flutter, React Native, and web application solutions." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --gold: #F5B800;
+      --gold-light: #FFD84D;
+      --amber: #FF9500;
+      --bg-dark: #0A0A0F;
+      --bg-card: #12121A;
+      --bg-card2: #16161F;
+      --bg-card3: #1A1A25;
+      --border: rgba(245, 184, 0, 0.12);
+      --border-hover: rgba(245, 184, 0, 0.45);
+      --text-primary: #F0F0F5;
+      --text-secondary: #8888AA;
+      --text-muted: #505068;
+      --app-blue: #4F8EF7;
+      --app-purple: #9B6BF7;
+      --app-cyan: #22D3EE;
+      --app-green: #22C55E;
+      --app-glow: rgba(79, 142, 247, 0.2);
+      --radius: 18px;
+      --radius-sm: 12px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-primary);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ─── BACKGROUND ─── */
+    .bg-grid {
+      position: fixed; inset: 0; z-index: 0;
+      background-image:
+        linear-gradient(rgba(79, 142, 247, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(79, 142, 247, 0.025) 1px, transparent 1px);
+      background-size: 50px 50px;
+      pointer-events: none;
+    }
+    .bg-glow-1 {
+      position: fixed; top: -300px; right: -150px;
+      width: 700px; height: 700px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(79, 142, 247, 0.1) 0%, transparent 65%);
+      pointer-events: none; z-index: 0;
+    }
+    .bg-glow-2 {
+      position: fixed; bottom: -200px; left: -200px;
+      width: 600px; height: 600px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(155, 107, 247, 0.08) 0%, transparent 65%);
+      pointer-events: none; z-index: 0;
+    }
+    .bg-glow-3 {
+      position: fixed; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 1000px; height: 500px;
+      background: radial-gradient(ellipse, rgba(245, 184, 0, 0.03) 0%, transparent 65%);
+      pointer-events: none; z-index: 0;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(10, 10, 15, 0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 40px;
+    }
+    .nav-inner {
+      max-width: 1400px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none;
+    }
+    .nav-logo .bee { font-size: 22px; animation: buzz 2.5s ease-in-out infinite; }
+    .nav-logo span {
+      font-family: 'Outfit', sans-serif; font-size: 16px;
+      font-weight: 800; color: var(--text-primary);
+    }
+    .nav-logo .divider-dot { color: var(--text-muted); }
+    .nav-logo .sub { font-size: 13px; font-weight: 500; color: var(--app-blue); }
+    .nav-links { display: flex; align-items: center; gap: 8px; }
+    .nav-link {
+      font-size: 13px; color: var(--text-secondary); text-decoration: none;
+      padding: 6px 14px; border-radius: 8px; transition: all 0.2s;
+    }
+    .nav-link:hover { color: var(--text-primary); background: rgba(255,255,255,0.05); }
+    .nav-cta {
+      padding: 8px 20px; border-radius: 50px;
+      background: linear-gradient(135deg, var(--gold), var(--amber));
+      color: #000; font-weight: 700; font-size: 13px;
+      text-decoration: none; transition: all 0.3s;
+      box-shadow: 0 4px 16px rgba(245,184,0,0.25);
+    }
+    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(245,184,0,0.4); }
+
+    @keyframes buzz {
+      0%, 100% { transform: rotate(-5deg) scale(1); }
+      25% { transform: rotate(5deg) scale(1.1); }
+      50% { transform: rotate(-3deg) scale(1.05); }
+      75% { transform: rotate(3deg) scale(1.08); }
+    }
+
+    /* ─── WRAPPER ─── */
+    .wrapper {
+      position: relative; z-index: 1;
+      max-width: 1400px; margin: 0 auto;
+      padding: 0 32px 100px;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      text-align: center; padding: 100px 0 80px;
+      animation: fadeUp 0.8s ease both;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(79,142,247,0.1); border: 1px solid rgba(79,142,247,0.25);
+      border-radius: 50px; padding: 8px 20px; margin-bottom: 32px;
+    }
+    .hero-badge span { font-size: 12px; font-weight: 700; color: var(--app-blue); letter-spacing: 1.5px; text-transform: uppercase; }
+    .hero h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(40px, 6.5vw, 80px);
+      font-weight: 900; line-height: 1.05; margin-bottom: 24px;
+    }
+    .hero h1 .grad-blue {
+      background: linear-gradient(135deg, var(--app-cyan), var(--app-blue), var(--app-purple));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hero h1 .grad-gold {
+      background: linear-gradient(135deg, var(--gold-light), var(--amber));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hero p {
+      font-size: 18px; color: var(--text-secondary);
+      max-width: 650px; margin: 0 auto 48px; line-height: 1.75;
+    }
+    .hero-actions {
+      display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
+    }
+    .btn-primary {
+      padding: 14px 32px; border-radius: 50px;
+      background: linear-gradient(135deg, var(--app-blue), var(--app-purple));
+      color: #fff; font-weight: 700; font-size: 15px;
+      text-decoration: none; border: none; cursor: pointer;
+      transition: all 0.3s; box-shadow: 0 8px 28px rgba(79,142,247,0.35);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 36px rgba(79,142,247,0.5); }
+    .btn-secondary {
+      padding: 14px 32px; border-radius: 50px;
+      background: transparent; border: 1px solid var(--border-hover);
+      color: var(--text-primary); font-weight: 600; font-size: 15px;
+      text-decoration: none; cursor: pointer; transition: all 0.3s;
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.05); border-color: rgba(245,184,0,0.6); }
+
+    /* ─── STATS STRIP ─── */
+    .stats-strip {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1px; background: var(--border);
+      border: 1px solid var(--border); border-radius: var(--radius);
+      overflow: hidden; margin-bottom: 100px;
+      animation: fadeUp 0.7s 0.15s ease both;
+    }
+    .stat-item {
+      background: var(--bg-card); padding: 32px;
+      text-align: center; transition: background 0.3s;
+    }
+    .stat-item:hover { background: var(--bg-card2); }
+    .stat-num {
+      font-family: 'Outfit', sans-serif; font-size: 36px; font-weight: 900;
+      background: linear-gradient(135deg, var(--gold-light), var(--amber));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      margin-bottom: 6px;
+    }
+    .stat-label { font-size: 13px; color: var(--text-secondary); font-weight: 500; }
+
+    /* ─── SECTION TITLES ─── */
+    .section-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--app-blue);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'Outfit', sans-serif; font-size: clamp(28px, 4vw, 44px);
+      font-weight: 800; line-height: 1.15; margin-bottom: 16px;
+    }
+    .section-desc {
+      font-size: 16px; color: var(--text-secondary);
+      line-height: 1.75; max-width: 600px;
+    }
+    .section-header-row {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      margin-bottom: 48px; flex-wrap: wrap; gap: 24px;
+    }
+
+    /* ─── SERVICE TYPE CARDS ─── */
+    .service-types {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 24px; margin-bottom: 100px;
+      animation: fadeUp 0.7s 0.2s ease both;
+    }
+    .type-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px 32px;
+      position: relative; overflow: hidden;
+      transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+      cursor: default; text-decoration: none; color: inherit;
+    }
+    .type-card::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.02), transparent);
+      pointer-events: none;
+    }
+    .type-card::after {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 2px;
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .type-card.mobile::after { background: linear-gradient(90deg, var(--app-blue), var(--app-purple)); }
+    .type-card.web::after { background: linear-gradient(90deg, var(--app-cyan), var(--app-blue)); }
+    .type-card.ecom::after { background: linear-gradient(90deg, var(--gold), var(--amber)); }
+    .type-card:hover { transform: translateY(-8px); border-color: var(--border-hover); }
+    .type-card:hover::after { opacity: 1; }
+    .type-card.mobile:hover { box-shadow: 0 24px 60px rgba(79,142,247,0.2); }
+    .type-card.web:hover { box-shadow: 0 24px 60px rgba(34,211,238,0.15); }
+    .type-card.ecom:hover { box-shadow: 0 24px 60px rgba(245,184,0,0.18); }
+
+    .type-icon {
+      width: 60px; height: 60px; border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 28px; margin-bottom: 24px;
+    }
+    .type-icon.mobile { background: rgba(79,142,247,0.12); }
+    .type-icon.web { background: rgba(34,211,238,0.1); }
+    .type-icon.ecom { background: rgba(245,184,0,0.1); }
+
+    .type-title {
+      font-family: 'Outfit', sans-serif; font-size: 22px; font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .type-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 24px; }
+    .type-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag {
+      font-size: 11px; font-weight: 600; padding: 4px 12px;
+      border-radius: 20px; letter-spacing: 0.3px;
+    }
+    .tag.blue { background: rgba(79,142,247,0.12); color: var(--app-blue); border: 1px solid rgba(79,142,247,0.2); }
+    .tag.purple { background: rgba(155,107,247,0.12); color: var(--app-purple); border: 1px solid rgba(155,107,247,0.2); }
+    .tag.cyan { background: rgba(34,211,238,0.1); color: var(--app-cyan); border: 1px solid rgba(34,211,238,0.2); }
+    .tag.gold { background: rgba(245,184,0,0.1); color: var(--gold); border: 1px solid rgba(245,184,0,0.2); }
+    .tag.green { background: rgba(34,197,94,0.1); color: var(--app-green); border: 1px solid rgba(34,197,94,0.2); }
+
+    /* ─── PRICING PACKAGES ─── */
+    .pricing-section { margin-bottom: 100px; }
+    .packages-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 24px; margin-top: 48px;
+    }
+    .pkg-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 36px 32px;
+      position: relative; overflow: hidden;
+      transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+    }
+    .pkg-card::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(160deg, rgba(255,255,255,0.025), transparent 60%);
+      pointer-events: none;
+    }
+    .pkg-card:hover { transform: translateY(-8px); }
+    .pkg-card.featured {
+      border-color: var(--app-blue);
+      background: linear-gradient(160deg, rgba(79,142,247,0.07), var(--bg-card));
+    }
+    .pkg-card.featured:hover { box-shadow: 0 28px 70px rgba(79,142,247,0.25); }
+    .pkg-card:not(.featured):hover { box-shadow: 0 20px 50px rgba(0,0,0,0.4); border-color: rgba(245,184,0,0.3); }
+
+    .featured-badge {
+      position: absolute; top: 20px; right: 20px;
+      background: linear-gradient(135deg, var(--app-blue), var(--app-purple));
+      color: #fff; font-size: 10px; font-weight: 800;
+      padding: 5px 14px; border-radius: 20px; letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .pkg-tier {
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; margin-bottom: 12px;
+    }
+    .pkg-tier.starter { color: var(--app-cyan); }
+    .pkg-tier.pro { color: var(--app-blue); }
+    .pkg-tier.enterprise { color: var(--app-purple); }
+
+    .pkg-name {
+      font-family: 'Outfit', sans-serif; font-size: 26px;
+      font-weight: 800; margin-bottom: 8px;
+    }
+    .pkg-tagline { font-size: 14px; color: var(--text-secondary); margin-bottom: 28px; line-height: 1.6; }
+
+    .pkg-price-box {
+      background: rgba(255,255,255,0.03); border: 1px solid var(--border);
+      border-radius: var(--radius-sm); padding: 20px 24px;
+      margin-bottom: 28px;
+    }
+    .price-note { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+    .price-amount {
+      font-family: 'Outfit', sans-serif; font-size: 42px;
+      font-weight: 900; line-height: 1; margin-bottom: 4px;
+    }
+    .price-amount .cur { font-size: 24px; vertical-align: super; }
+    .price-amount.blue { color: var(--app-blue); }
+    .price-amount.purple { color: var(--app-purple); }
+    .price-amount.grad {
+      background: linear-gradient(135deg, var(--gold-light), var(--amber));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .price-period { font-size: 13px; color: var(--text-secondary); }
+    .price-timeline { font-size: 12px; color: var(--text-muted); margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--border); }
+
+    .features-title {
+      font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+    .pkg-features { list-style: none; }
+    .pkg-features li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 13.5px; color: var(--text-secondary);
+      padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,0.03);
+    }
+    .pkg-features li:last-child { border-bottom: none; }
+    .check { font-size: 13px; flex-shrink: 0; margin-top: 2px; }
+    .check.blue { color: var(--app-blue); }
+    .check.purple { color: var(--app-purple); }
+    .check.gold { color: var(--gold); }
+
+    .pkg-cta {
+      display: block; width: 100%; margin-top: 28px;
+      padding: 13px 24px; border-radius: 50px; text-align: center;
+      font-weight: 700; font-size: 14px; text-decoration: none;
+      transition: all 0.3s; cursor: pointer; border: none;
+    }
+    .pkg-cta.blue {
+      background: linear-gradient(135deg, var(--app-blue), var(--app-purple));
+      color: #fff; box-shadow: 0 6px 20px rgba(79,142,247,0.3);
+    }
+    .pkg-cta.blue:hover { box-shadow: 0 10px 30px rgba(79,142,247,0.5); transform: translateY(-1px); }
+    .pkg-cta.outline {
+      background: transparent; border: 1px solid var(--border-hover);
+      color: var(--text-primary);
+    }
+    .pkg-cta.outline:hover { background: rgba(79,142,247,0.08); border-color: var(--app-blue); }
+    .pkg-cta.gold-btn {
+      background: linear-gradient(135deg, var(--gold), var(--amber));
+      color: #000; box-shadow: 0 6px 20px rgba(245,184,0,0.25);
+    }
+    .pkg-cta.gold-btn:hover { box-shadow: 0 10px 30px rgba(245,184,0,0.45); transform: translateY(-1px); }
+
+    /* ─── ADD-ONS ─── */
+    .addons-section { margin-bottom: 100px; }
+    .addons-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 14px;
+    }
+    .addon-card {
+      background: var(--bg-card2); border: 1px solid var(--border);
+      border-radius: var(--radius-sm); padding: 20px 22px;
+      transition: all 0.25s ease;
+    }
+    .addon-card:hover { transform: translateY(-4px); border-color: rgba(79,142,247,0.3); background: rgba(79,142,247,0.04); }
+    .addon-name { font-size: 13px; font-weight: 600; margin-bottom: 8px; }
+    .addon-price { font-size: 17px; font-weight: 800; color: var(--app-blue); }
+    .addon-note { font-size: 11px; color: var(--text-muted); margin-top: 3px; }
+
+    /* ─── TECH STACK ─── */
+    .tech-section { margin-bottom: 100px; }
+    .tech-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .tech-col {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 32px 28px;
+      transition: all 0.3s;
+    }
+    .tech-col:hover { border-color: rgba(79,142,247,0.3); }
+    .tech-col-title {
+      font-family: 'Outfit', sans-serif; font-size: 18px; font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .tech-col-sub { font-size: 13px; color: var(--text-secondary); margin-bottom: 24px; }
+    .tech-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tech-tag {
+      display: flex; align-items: center; gap: 6px;
+      background: var(--bg-card3); border: 1px solid var(--border);
+      border-radius: 8px; padding: 7px 14px;
+      font-size: 12px; font-weight: 600; color: var(--text-secondary);
+      transition: all 0.2s;
+    }
+    .tech-tag:hover { border-color: rgba(79,142,247,0.3); color: var(--text-primary); }
+    .tech-tag .dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .dot-blue { background: var(--app-blue); }
+    .dot-purple { background: var(--app-purple); }
+    .dot-cyan { background: var(--app-cyan); }
+    .dot-green { background: var(--app-green); }
+    .dot-gold { background: var(--gold); }
+
+    /* ─── PROCESS ─── */
+    .process-section { margin-bottom: 100px; }
+    .process-steps {
+      display: grid; grid-template-columns: repeat(5, 1fr);
+      gap: 0; position: relative; margin-top: 48px;
+    }
+    .process-steps::before {
+      content: ''; position: absolute;
+      top: 28px; left: 10%; right: 10%; height: 2px;
+      background: linear-gradient(90deg, var(--app-blue), var(--app-purple));
+      opacity: 0.3; z-index: 0;
+    }
+    .step {
+      text-align: center; padding: 0 12px;
+      position: relative; z-index: 1;
+    }
+    .step-num {
+      width: 56px; height: 56px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Outfit', sans-serif; font-size: 18px; font-weight: 900;
+      margin: 0 auto 16px;
+      background: var(--bg-card2); border: 2px solid var(--border);
+      transition: all 0.3s;
+    }
+    .step:hover .step-num {
+      border-color: var(--app-blue);
+      background: rgba(79,142,247,0.1);
+      box-shadow: 0 0 20px rgba(79,142,247,0.25);
+    }
+    .step-num span {
+      background: linear-gradient(135deg, var(--app-blue), var(--app-purple));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .step-title { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+    .step-desc { font-size: 12px; color: var(--text-secondary); line-height: 1.6; }
+
+    /* ─── COMPARISON TABLE ─── */
+    .compare-section { margin-bottom: 100px; }
+    .compare-wrap {
+      overflow-x: auto; border-radius: var(--radius);
+      border: 1px solid var(--border);
+    }
+    .compare-table {
+      width: 100%; border-collapse: collapse; min-width: 700px;
+    }
+    .compare-table th {
+      padding: 18px 24px; text-align: left; font-size: 13px;
+      font-weight: 700; background: var(--bg-card2);
+      color: var(--text-secondary);
+    }
+    .compare-table th.highlight { color: var(--app-blue); }
+    .compare-table td {
+      padding: 15px 24px; font-size: 13px; color: var(--text-secondary);
+      border-top: 1px solid var(--border); background: var(--bg-card);
+      transition: background 0.2s;
+    }
+    .compare-table tr:hover td { background: var(--bg-card2); }
+    .compare-table td:first-child { font-weight: 600; color: var(--text-primary); }
+    .yes { color: var(--app-green); font-size: 16px; }
+    .no { color: var(--text-muted); font-size: 16px; }
+    .price-cell { font-weight: 800; color: var(--app-blue); }
+
+    /* ─── FAQ ─── */
+    .faq-section { margin-bottom: 100px; }
+    .faq-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .faq-item {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius-sm); padding: 24px 28px;
+      transition: all 0.3s;
+    }
+    .faq-item:hover { border-color: rgba(79,142,247,0.3); }
+    .faq-q { font-size: 14px; font-weight: 700; margin-bottom: 10px; color: var(--text-primary); }
+    .faq-a { font-size: 13px; color: var(--text-secondary); line-height: 1.7; }
+
+    /* ─── CTA BANNER ─── */
+    .cta-banner {
+      background: linear-gradient(135deg, rgba(79,142,247,0.1), rgba(155,107,247,0.1));
+      border: 1px solid rgba(79,142,247,0.2);
+      border-radius: 24px; padding: 64px 48px;
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .cta-banner::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at center, rgba(79,142,247,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-banner h2 {
+      font-family: 'Outfit', sans-serif; font-size: clamp(28px, 4vw, 48px);
+      font-weight: 900; margin-bottom: 16px; position: relative;
+    }
+    .cta-banner p {
+      font-size: 16px; color: var(--text-secondary);
+      max-width: 500px; margin: 0 auto 40px; line-height: 1.7; position: relative;
+    }
+    .cta-actions {
+      display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
+      position: relative;
+    }
+
+    /* ─── BACK LINK ─── */
+    .back-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--text-secondary); text-decoration: none;
+      font-size: 13px; font-weight: 500;
+      padding: 8px 16px; border-radius: 8px;
+      border: 1px solid var(--border); margin-bottom: 0;
+      transition: all 0.2s;
+    }
+    .back-link:hover { color: var(--text-primary); border-color: var(--border-hover); background: rgba(255,255,255,0.03); }
+
+    /* ─── DIVIDER ─── */
+    .divider {
+      height: 1px; width: 100%; margin: 80px 0;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      border-top: 1px solid var(--border); padding: 32px 40px;
+      position: relative; z-index: 1;
+    }
+    .footer-inner {
+      max-width: 1400px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 16px;
+    }
+    .footer-inner .left { font-size: 13px; color: var(--text-muted); }
+    .footer-inner .left strong { color: var(--text-secondary); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a {
+      font-size: 13px; color: var(--text-muted);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--text-primary); }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .service-types { grid-template-columns: 1fr 1fr; }
+      .packages-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .process-steps::before { display: none; }
+      .tech-grid { grid-template-columns: 1fr; }
+      .stats-strip { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .wrapper { padding: 0 20px 80px; }
+      nav { padding: 0 20px; }
+      .service-types { grid-template-columns: 1fr; }
+      .faq-grid { grid-template-columns: 1fr; }
+      .cta-banner { padding: 40px 24px; }
+      .hero { padding: 60px 0 60px; }
+      .stats-strip { grid-template-columns: 1fr 1fr; }
+      .process-steps { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .section-header-row { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-grid"></div>
+  <div class="bg-glow-1"></div>
+  <div class="bg-glow-2"></div>
+  <div class="bg-glow-3"></div>
+
+  <!-- ═══ NAV ═══ -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="bee">🐝</span>
+        <span>Digital Bee</span>
+        <span class="divider-dot"> · </span>
+        <span class="sub">Agency</span>
+      </a>
+      <div class="nav-links">
+        <a href="#types" class="nav-link">Services</a>
+        <a href="#pricing" class="nav-link">Pricing</a>
+        <a href="#stack" class="nav-link">Tech Stack</a>
+        <a href="#process" class="nav-link">Process</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+        <a href="index.html" class="nav-link">← All Services</a>
+      </div>
+      <a href="mailto:hello@digitalbee.in" class="nav-cta">Get a Quote →</a>
+    </div>
+  </nav>
+
+  <div class="wrapper">
+
+    <!-- ═══ HERO ═══ -->
+    <div class="hero">
+      <div class="hero-badge">
+        <span>⚡ Digital Bee Agency — App Development</span>
+      </div>
+      <h1>
+        We Build Apps<br />
+        That <span class="grad-blue">Scale</span> &amp; <span class="grad-gold">Convert</span>
+      </h1>
+      <p>From idea to App Store — we design, develop, and launch premium mobile and web applications that your users will love and your business will grow with.</p>
+      <div class="hero-actions">
+        <a href="#pricing" class="btn-primary">View Pricing →</a>
+        <a href="mailto:hello@digitalbee.in" class="btn-secondary">Book a Free Call</a>
+      </div>
+    </div>
+
+    <!-- ═══ STATS ═══ -->
+    <div class="stats-strip">
+      <div class="stat-item">
+        <div class="stat-num">50+</div>
+        <div class="stat-label">Apps Launched</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">4.9★</div>
+        <div class="stat-label">Client Rating</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">8 Wks</div>
+        <div class="stat-label">Avg. Delivery Time</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">On-Time Delivery</div>
+      </div>
+    </div>
+
+    <!-- ═══ SERVICE TYPES ═══ -->
+    <div id="types">
+      <div class="section-header-row">
+        <div>
+          <div class="section-label">What We Build</div>
+          <div class="section-title">Three Core<br />App Development Services</div>
+          <div class="section-desc">Whether you need a mobile app, a powerful web platform, or a full e-commerce ecosystem — we've got you covered.</div>
+        </div>
+      </div>
+
+      <div class="service-types">
+
+        <!-- MOBILE APP -->
+        <div class="type-card mobile">
+          <div class="type-icon mobile">📱</div>
+          <div class="type-title">Mobile App Development</div>
+          <div class="type-desc">Native and cross-platform apps for iOS and Android. Built for performance, designed for delight, and optimized for retention.</div>
+          <div class="type-tags">
+            <span class="tag blue">React Native</span>
+            <span class="tag purple">Flutter</span>
+            <span class="tag blue">iOS Native</span>
+            <span class="tag blue">Android Native</span>
+            <span class="tag cyan">Firebase</span>
+          </div>
+        </div>
+
+        <!-- WEB APP -->
+        <div class="type-card web">
+          <div class="type-icon web">🌐</div>
+          <div class="type-title">Web Application Development</div>
+          <div class="type-desc">Scalable SaaS platforms, dashboards, CRMs, and business tools. Fast, secure, and built to handle real-world traffic.</div>
+          <div class="type-tags">
+            <span class="tag cyan">Next.js</span>
+            <span class="tag blue">React</span>
+            <span class="tag green">Node.js</span>
+            <span class="tag cyan">PostgreSQL</span>
+            <span class="tag blue">REST API</span>
+          </div>
+        </div>
+
+        <!-- E-COMMERCE APP -->
+        <div class="type-card ecom">
+          <div class="type-icon ecom">🛒</div>
+          <div class="type-title">E-Commerce App Development</div>
+          <div class="type-desc">Custom Shopify apps, multi-vendor marketplaces, and standalone commerce platforms. Built to sell 24/7 at scale.</div>
+          <div class="type-tags">
+            <span class="tag gold">Shopify</span>
+            <span class="tag gold">WooCommerce</span>
+            <span class="tag green">Payment Gateway</span>
+            <span class="tag gold">Custom Cart</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ═══ PRICING ═══ -->
+    <div id="pricing" class="pricing-section">
+      <div class="section-header-row">
+        <div>
+          <div class="section-label">Transparent Pricing</div>
+          <div class="section-title">App Development<br />Packages</div>
+          <div class="section-desc">All packages include UI/UX design, development, testing, and deployment. No hidden costs.</div>
+        </div>
+      </div>
+
+      <div class="packages-grid">
+
+        <!-- STARTER -->
+        <div class="pkg-card">
+          <div class="pkg-tier starter">Starter</div>
+          <div class="pkg-name">Launch App</div>
+          <div class="pkg-tagline">For startups and SMEs who need to get a quality MVP live fast and validate their idea with real users.</div>
+          <div class="pkg-price-box">
+            <div class="price-note">Starting at</div>
+            <div class="price-amount blue"><span class="cur">₹</span>60,000</div>
+            <div class="price-period">One-time project fee</div>
+            <div class="price-timeline">⏱ Estimated delivery: 4–6 weeks</div>
+          </div>
+          <div class="features-title">What's included</div>
+          <ul class="pkg-features">
+            <li><span class="check blue">✦</span> UI/UX Design (up to 10 screens)</li>
+            <li><span class="check blue">✦</span> React Native (iOS + Android)</li>
+            <li><span class="check blue">✦</span> User Authentication (OTP/Email)</li>
+            <li><span class="check blue">✦</span> Basic API Integration</li>
+            <li><span class="check blue">✦</span> Firebase Backend</li>
+            <li><span class="check blue">✦</span> Push Notifications</li>
+            <li><span class="check blue">✦</span> App Store + Play Store Submission</li>
+            <li><span class="check blue">✦</span> 30-Day Post-Launch Support</li>
+          </ul>
+          <a href="mailto:hello@digitalbee.in" class="pkg-cta outline">Get Started →</a>
+        </div>
+
+        <!-- GROWTH — FEATURED -->
+        <div class="pkg-card featured">
+          <div class="featured-badge">⭐ Most Popular</div>
+          <div class="pkg-tier pro">Pro</div>
+          <div class="pkg-name">Growth App</div>
+          <div class="pkg-tagline">For growing businesses that need a feature-rich, scalable app with a polished experience that stands out in the market.</div>
+          <div class="pkg-price-box">
+            <div class="price-note">Starting at</div>
+            <div class="price-amount blue"><span class="cur">₹</span>1,50,000</div>
+            <div class="price-period">One-time project fee</div>
+            <div class="price-timeline">⏱ Estimated delivery: 8–12 weeks</div>
+          </div>
+          <div class="features-title">Everything in Starter, plus</div>
+          <ul class="pkg-features">
+            <li><span class="check blue">✦</span> Full UI/UX Design System (25+ screens)</li>
+            <li><span class="check blue">✦</span> React Native or Flutter</li>
+            <li><span class="check blue">✦</span> Custom REST API / Node.js Backend</li>
+            <li><span class="check blue">✦</span> Admin Dashboard (Web)</li>
+            <li><span class="check blue">✦</span> In-App Payments (Razorpay / Stripe)</li>
+            <li><span class="check blue">✦</span> Real-time Features (Chat / Notifications)</li>
+            <li><span class="check blue">✦</span> Analytics Integration (Firebase + Mixpanel)</li>
+            <li><span class="check blue">✦</span> Social Login (Google, Apple, FB)</li>
+            <li><span class="check blue">✦</span> 60-Day Post-Launch Support</li>
+            <li><span class="check blue">✦</span> ASO (App Store Optimization)</li>
+          </ul>
+          <a href="mailto:hello@digitalbee.in" class="pkg-cta blue">Get Started →</a>
+        </div>
+
+        <!-- ENTERPRISE -->
+        <div class="pkg-card">
+          <div class="pkg-tier enterprise">Enterprise</div>
+          <div class="pkg-name">Scale App</div>
+          <div class="pkg-tagline">For enterprises and funded startups that need a world-class product with full custom architecture and a dedicated team.</div>
+          <div class="pkg-price-box">
+            <div class="price-note">Starting at</div>
+            <div class="price-amount grad"><span class="cur">₹</span>3,50,000</div>
+            <div class="price-period">One-time project fee</div>
+            <div class="price-timeline">⏱ Estimated delivery: 16–24 weeks</div>
+          </div>
+          <div class="features-title">Everything in Growth, plus</div>
+          <ul class="pkg-features">
+            <li><span class="check gold">✦</span> Native iOS + Native Android (Separate Codebases)</li>
+            <li><span class="check gold">✦</span> Microservices / Scalable Cloud Architecture</li>
+            <li><span class="check gold">✦</span> Advanced AI/ML Features</li>
+            <li><span class="check gold">✦</span> Multi-Language Support</li>
+            <li><span class="check gold">✦</span> White-labelling Available</li>
+            <li><span class="check gold">✦</span> Dedicated Project Manager</li>
+            <li><span class="check gold">✦</span> CI/CD Pipeline Setup</li>
+            <li><span class="check gold">✦</span> Load Testing + Security Audit</li>
+            <li><span class="check gold">✦</span> 6-Month Retainer Support</li>
+            <li><span class="check gold">✦</span> Weekly Progress Calls</li>
+          </ul>
+          <a href="mailto:hello@digitalbee.in" class="pkg-cta gold-btn">Let's Talk →</a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ═══ ADD-ONS ═══ -->
+    <div class="addons-section">
+      <div class="section-header-row">
+        <div>
+          <div class="section-label">Add-On Services</div>
+          <div class="section-title">Enhance Your App</div>
+          <div class="section-desc">Bolt-on any of these services to your existing package for maximum impact.</div>
+        </div>
+      </div>
+      <div class="addons-grid">
+        <div class="addon-card">
+          <div class="addon-name">UI/UX Design Only</div>
+          <div class="addon-price">₹20,000+</div>
+          <div class="addon-note">Figma prototypes per project</div>
+        </div>
+        <div class="addon-card">
+          <div class="addon-name">AI Chatbot Integration</div>
+          <div class="addon-price">₹30,000+</div>
+          <div class="addon-note">GPT-4 / Gemini powered</div>
+        </div>
+        <div class="addon-card">
+          <div class="addon-name">Payment Gateway Setup</div>
+          <div class="addon-price">₹8,000+</div>
+          <div class="addon-note">Razorpay / Stripe / PayU</div>
+        </div>
+        <div class="addon-card">
+          <div class="addon-name">App Maintenance</div>
+          <div class="addon-price">₹12,000+</div>
+          <div class="addon-note">Per month retainer</div>
+        </div>
+        <div class="addon-card">
+          <div class="addon-name">Performance Optimization</div>
+          <div class="addon-price">₹15,000+</div>
+          <div class="addon-note">Speed + crash audit</div>
+        </div>
+        <div class="addon-card">
+          <div class="addon-name">App Store Optimization</div>
+          <div class="addon-price">₹8,000+</div>
+          <div class="addon-note">ASO for ranking</div>
+        </div>
+        <div class="addon-card">
+          <div class="addon-name">Push Notification System</div>
+          <div class="addon-price">₹10,000+</div>
+          <div class="addon-note">OneSignal / Firebase FCM</div>
+        </div>
+        <div class="addon-card">
+          <div class="addon-name">Analytics Dashboard</div>
+          <div class="addon-price">₹12,000+</div>
+          <div class="addon-note">Firebase + Mixpanel setup</div>
+        </div>
+        <div class="addon-card">
+          <div class="addon-name">API Development</div>
+          <div class="addon-price">₹25,000+</div>
+          <div class="addon-note">Custom REST / GraphQL</div>
+        </div>
+        <div class="addon-card">
+          <div class="addon-name">Security Audit</div>
+          <div class="addon-price">₹18,000+</div>
+          <div class="addon-note">Pen testing + fixes</div>
+        </div>
+        <div class="addon-card">
+          <div class="addon-name">Multi-Language (i18n)</div>
+          <div class="addon-price">₹10,000+</div>
+          <div class="addon-note">Per language added</div>
+        </div>
+        <div class="addon-card">
+          <div class="addon-name">Cloud Hosting Setup</div>
+          <div class="addon-price">₹15,000+</div>
+          <div class="addon-note">AWS / GCP / Vercel</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ═══ TECH STACK ═══ -->
+    <div id="stack" class="tech-section">
+      <div class="section-header-row">
+        <div>
+          <div class="section-label">Technology</div>
+          <div class="section-title">Our Tech Stack</div>
+          <div class="section-desc">We use battle-tested, modern technologies that scale from MVP to millions of users.</div>
+        </div>
+      </div>
+      <div class="tech-grid">
+        <div class="tech-col">
+          <div class="tech-col-title">📱 Mobile Development</div>
+          <div class="tech-col-sub">Cross-platform and native mobile frameworks</div>
+          <div class="tech-tags">
+            <span class="tech-tag"><span class="dot dot-blue"></span>React Native</span>
+            <span class="tech-tag"><span class="dot dot-cyan"></span>Flutter</span>
+            <span class="tech-tag"><span class="dot dot-blue"></span>Swift (iOS)</span>
+            <span class="tech-tag"><span class="dot dot-green"></span>Kotlin (Android)</span>
+            <span class="tech-tag"><span class="dot dot-gold"></span>Expo</span>
+            <span class="tech-tag"><span class="dot dot-purple"></span>Capacitor</span>
+            <span class="tech-tag"><span class="dot dot-cyan"></span>Firebase</span>
+            <span class="tech-tag"><span class="dot dot-green"></span>Supabase</span>
+          </div>
+        </div>
+        <div class="tech-col">
+          <div class="tech-col-title">🌐 Web App Development</div>
+          <div class="tech-col-sub">Modern frontend and backend frameworks</div>
+          <div class="tech-tags">
+            <span class="tech-tag"><span class="dot dot-blue"></span>Next.js</span>
+            <span class="tech-tag"><span class="dot dot-cyan"></span>React</span>
+            <span class="tech-tag"><span class="dot dot-green"></span>Node.js</span>
+            <span class="tech-tag"><span class="dot dot-purple"></span>TypeScript</span>
+            <span class="tech-tag"><span class="dot dot-blue"></span>Express.js</span>
+            <span class="tech-tag"><span class="dot dot-cyan"></span>PostgreSQL</span>
+            <span class="tech-tag"><span class="dot dot-green"></span>MongoDB</span>
+            <span class="tech-tag"><span class="dot dot-gold"></span>Redis</span>
+          </div>
+        </div>
+        <div class="tech-col">
+          <div class="tech-col-title">☁️ Cloud & DevOps</div>
+          <div class="tech-col-sub">Scalable infrastructure and CI/CD pipelines</div>
+          <div class="tech-tags">
+            <span class="tech-tag"><span class="dot dot-gold"></span>AWS</span>
+            <span class="tech-tag"><span class="dot dot-blue"></span>Google Cloud</span>
+            <span class="tech-tag"><span class="dot dot-cyan"></span>Vercel</span>
+            <span class="tech-tag"><span class="dot dot-green"></span>Docker</span>
+            <span class="tech-tag"><span class="dot dot-purple"></span>GitHub Actions</span>
+            <span class="tech-tag"><span class="dot dot-blue"></span>Cloudflare</span>
+            <span class="tech-tag"><span class="dot dot-cyan"></span>Nginx</span>
+          </div>
+        </div>
+        <div class="tech-col">
+          <div class="tech-col-title">🤖 AI & Integrations</div>
+          <div class="tech-col-sub">Smart features and third-party integrations</div>
+          <div class="tech-tags">
+            <span class="tech-tag"><span class="dot dot-green"></span>OpenAI GPT-4</span>
+            <span class="tech-tag"><span class="dot dot-blue"></span>Google Gemini</span>
+            <span class="tech-tag"><span class="dot dot-gold"></span>Razorpay</span>
+            <span class="tech-tag"><span class="dot dot-cyan"></span>Stripe</span>
+            <span class="tech-tag"><span class="dot dot-purple"></span>Twilio SMS</span>
+            <span class="tech-tag"><span class="dot dot-blue"></span>WhatsApp API</span>
+            <span class="tech-tag"><span class="dot dot-green"></span>Maps API</span>
+            <span class="tech-tag"><span class="dot dot-gold"></span>Mixpanel</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ PROCESS ═══ -->
+    <div id="process" class="process-section">
+      <div class="section-header-row">
+        <div>
+          <div class="section-label">How We Work</div>
+          <div class="section-title">Our 5-Step<br />Development Process</div>
+          <div class="section-desc">A proven process that has delivered 50+ apps on time, on budget, and on point.</div>
+        </div>
+      </div>
+      <div class="process-steps">
+        <div class="step">
+          <div class="step-num"><span>01</span></div>
+          <div class="step-title">Discovery</div>
+          <div class="step-desc">Deep-dive into your idea, goals, audience, and competitors. We define the product scope.</div>
+        </div>
+        <div class="step">
+          <div class="step-num"><span>02</span></div>
+          <div class="step-title">Design</div>
+          <div class="step-desc">Wireframes, UI prototypes in Figma. You approve every screen before we write a line of code.</div>
+        </div>
+        <div class="step">
+          <div class="step-num"><span>03</span></div>
+          <div class="step-title">Develop</div>
+          <div class="step-desc">Sprint-based development with weekly demos. You see progress every step of the way.</div>
+        </div>
+        <div class="step">
+          <div class="step-num"><span>04</span></div>
+          <div class="step-title">Test</div>
+          <div class="step-desc">QA on real devices, performance testing, security review, and bug fixes before launch.</div>
+        </div>
+        <div class="step">
+          <div class="step-num"><span>05</span></div>
+          <div class="step-title">Launch & Scale</div>
+          <div class="step-desc">App Store + Play Store submission, post-launch monitoring, and iterative improvements.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ COMPARISON TABLE ═══ -->
+    <div class="compare-section">
+      <div class="section-header-row">
+        <div>
+          <div class="section-label">Package Comparison</div>
+          <div class="section-title">Compare All Plans</div>
+          <div class="section-desc">Find the right package for your stage, budget, and goals.</div>
+        </div>
+      </div>
+      <div class="compare-wrap">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Launch App<br /><small>₹60,000+</small></th>
+              <th class="highlight">Growth App ⭐<br /><small>₹1,50,000+</small></th>
+              <th>Scale App<br /><small>₹3,50,000+</small></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>iOS + Android</td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
+            <tr><td>UI/UX Design</td><td>10 screens</td><td>25+ screens</td><td>Unlimited</td></tr>
+            <tr><td>Custom Backend</td><td><span class="no">Firebase</span></td><td><span class="yes">✓ Node.js</span></td><td><span class="yes">✓ Microservices</span></td></tr>
+            <tr><td>Admin Dashboard</td><td><span class="no">—</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓ Advanced</span></td></tr>
+            <tr><td>Payment Gateway</td><td><span class="no">—</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
+            <tr><td>Real-time Features</td><td><span class="no">—</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
+            <tr><td>AI/ML Integration</td><td><span class="no">—</span></td><td><span class="no">Add-on</span></td><td><span class="yes">✓ Included</span></td></tr>
+            <tr><td>Analytics</td><td>Firebase</td><td>Firebase + Mixpanel</td><td>Custom + Advanced</td></tr>
+            <tr><td>ASO</td><td><span class="no">—</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
+            <tr><td>Security Audit</td><td><span class="no">—</span></td><td><span class="no">—</span></td><td><span class="yes">✓</span></td></tr>
+            <tr><td>Post-Launch Support</td><td>30 days</td><td>60 days</td><td>6 months</td></tr>
+            <tr><td>Dedicated PM</td><td><span class="no">—</span></td><td><span class="no">—</span></td><td><span class="yes">✓</span></td></tr>
+            <tr><td>Estimated Timeline</td><td>4–6 weeks</td><td>8–12 weeks</td><td>16–24 weeks</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ═══ FAQ ═══ -->
+    <div id="faq" class="faq-section">
+      <div class="section-header-row">
+        <div>
+          <div class="section-label">FAQ</div>
+          <div class="section-title">Common Questions</div>
+        </div>
+      </div>
+      <div class="faq-grid">
+        <div class="faq-item">
+          <div class="faq-q">How long does it take to build an app?</div>
+          <div class="faq-a">A basic MVP takes 4–6 weeks. A full-featured growth app takes 8–12 weeks. Enterprise apps with custom architecture take 16–24 weeks. Timelines depend on the scope and complexity of your project.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Do you build for both iOS and Android?</div>
+          <div class="faq-a">Yes. We use React Native and Flutter to build cross-platform apps that run natively on both iOS and Android from a single codebase, reducing cost and timeline. For enterprise clients, we also build native apps separately.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Who owns the code after the project?</div>
+          <div class="faq-a">You do. 100%. Upon final payment, full source code ownership, all assets, API keys, and repository access are transferred to you. No lock-in, ever.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">What is your payment structure?</div>
+          <div class="faq-a">We work with a milestone-based payment model: 40% to begin, 40% at design completion, and 20% on final delivery. This protects both parties and keeps things transparent.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Can you work with my existing backend or APIs?</div>
+          <div class="faq-a">Absolutely. We integrate seamlessly with your existing systems. Provide us your API documentation and we'll work with whatever stack you have — or build a new one if needed.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Do you provide ongoing maintenance?</div>
+          <div class="faq-a">Yes. After your launch support period, we offer monthly maintenance retainers starting at ₹12,000/month covering bug fixes, OS updates, feature additions, and performance monitoring.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ CTA BANNER ═══ -->
+    <div class="cta-banner">
+      <h2>🚀 Ready to Build<br /><span style="background: linear-gradient(135deg, var(--app-cyan), var(--app-blue), var(--app-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Your App?</span></h2>
+      <p>Tell us your idea. We'll give you a free technical consultation, estimated timeline, and fixed-price quote within 48 hours.</p>
+      <div class="cta-actions">
+        <a href="mailto:hello@digitalbee.in" class="btn-primary">📧 Email Us Your Idea</a>
+        <a href="https://wa.me/91XXXXXXXXXX" class="btn-secondary">💬 WhatsApp Us</a>
+        <a href="index.html" class="btn-secondary">← View All Services</a>
+      </div>
+    </div>
+
+  </div><!-- /wrapper -->
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer>
+    <div class="footer-inner">
+      <div class="left">
+        <strong>🐝 Digital Bee Agency</strong> · App Development Division<br />
+        All prices in ₹ INR and exclude taxes. Final pricing based on project scope.
+      </div>
+      <div class="footer-links">
+        <a href="index.html">← All Services & Pricing</a>
+        <a href="mailto:hello@digitalbee.in">Contact Us</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }, entry.target.dataset.delay || 0);
+        }
+      });
+    }, { threshold: 0.07 });
+
+    document.querySelectorAll(
+      '.type-card, .pkg-card, .addon-card, .tech-col, .step, .faq-item, .stat-item'
+    ).forEach((el, i) => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(22px)';
+      el.style.transition = `opacity 0.55s ease, transform 0.55s ease, box-shadow 0.35s ease, border-color 0.35s ease, background 0.3s ease`;
+      el.dataset.delay = (i % 6) * 70;
+      observer.observe(el);
+    });
+  </script>
+
+</body>
+</html>
