@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digital Bee — Agency & Studio | Grow. Create. Dominate.</title>
+  <meta name="description" content="Digital Bee is a full-service digital agency and creative studio helping businesses grow through technology, creativity, marketing, and automation." />
+  <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;600;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    :root {
+      --gold: #F5B800; --amber: #FF9500; --gold-light: #FFD84D;
+      --ag-bg: #0A0A0F; --ag-card: #111118; --ag-text: #F0F0F5; --ag-muted: #8888AA;
+      --bt-bg: #F5F3FF; --bt-card: #FFFFFF; --bt-primary: #6366F1; --bt-accent: #059669; --bt-fg: #1E1B4B; --bt-muted: #EBEFF9; --bt-border: #E0E7FF;
+      --st-bg: #06020F; --st-primary: #E11D48; --st-secondary: #FB7185; --st-accent: #2563EB; --st-text: #F8F8FF;
+      --radius: 16px; --radius-sm: 10px; --radius-lg: 24px;
+    }
+    body { font-family: 'Inter', sans-serif; background: var(--ag-bg); overflow-x: hidden; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; background: rgba(10,10,15,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(245,184,0,0.15); padding: 0 40px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo .bee { font-size: 24px; animation: buzz 2.5s ease-in-out infinite; }
+    .nav-logo span { font-family: 'Exo', sans-serif; font-size: 18px; font-weight: 900; color: #F0F0F5; }
+    .nav-links { display: flex; align-items: center; gap: 6px; }
+    .nav-link { font-size: 13px; color: #8888AA; text-decoration: none; padding: 7px 14px; border-radius: 8px; transition: all 0.2s; }
+    .nav-link:hover { color: #F0F0F5; background: rgba(255,255,255,0.06); }
+    .nav-cta { padding: 9px 22px; border-radius: 50px; background: linear-gradient(135deg, var(--gold), var(--amber)); color: #000; font-weight: 700; font-size: 13px; text-decoration: none; transition: all 0.3s; box-shadow: 0 4px 16px rgba(245,184,0,0.3); }
+    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(245,184,0,0.5); }
+    @keyframes buzz { 0%,100%{transform:rotate(-5deg) scale(1)} 25%{transform:rotate(5deg) scale(1.12)} 50%{transform:rotate(-3deg) scale(1.06)} 75%{transform:rotate(3deg) scale(1.09)} }
+
+    /* ═══ SECTION 1: AGENCY HERO — NEO BRUTALISM DARK ═══ */
+    .agency-hero { min-height: 100vh; background: var(--ag-bg); padding: 100px 40px 80px; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: center; }
+    .ag-grid-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; background-image: linear-gradient(rgba(245,184,0,0.035) 1px,transparent 1px),linear-gradient(90deg,rgba(245,184,0,0.035) 1px,transparent 1px); background-size: 48px 48px; }
+    .ag-block-1 { position: absolute; top: 120px; right: 80px; width: 320px; height: 220px; background: rgba(245,184,0,0.06); border: 3px solid rgba(245,184,0,0.18); border-radius: 4px; transform: rotate(3deg); z-index: 0; }
+    .ag-block-2 { position: absolute; bottom: 100px; left: 60px; width: 200px; height: 140px; background: rgba(79,142,247,0.05); border: 3px solid rgba(79,142,247,0.12); border-radius: 4px; transform: rotate(-2deg); z-index: 0; }
+    .ag-inner { position: relative; z-index: 1; max-width: 1300px; margin: 0 auto; width: 100%; }
+    .ag-badge { display: inline-flex; align-items: center; gap: 10px; background: rgba(245,184,0,0.1); border: 2px solid rgba(245,184,0,0.3); border-radius: 4px; padding: 8px 18px; margin-bottom: 32px; transform: rotate(-1deg); }
+    .ag-badge-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); animation: pulse 2s ease-in-out infinite; }
+    .ag-badge span { font-family: 'Exo', sans-serif; font-size: 12px; font-weight: 700; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.85)} }
+    .ag-headline { font-family: 'Exo', sans-serif; font-size: clamp(52px,8vw,100px); font-weight: 900; line-height: 0.95; color: var(--ag-text); margin-bottom: 28px; letter-spacing: -2px; }
+    .ag-headline .stroke { -webkit-text-stroke: 3px var(--ag-text); -webkit-text-fill-color: transparent; color: transparent; }
+    .ag-headline .fill-gold { background: linear-gradient(135deg, var(--gold-light), var(--amber)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .ag-sub { font-size: 18px; color: var(--ag-muted); max-width: 560px; line-height: 1.75; margin-bottom: 44px; }
+    .ag-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 56px; }
+    .ag-btn-primary { display: inline-flex; align-items: center; gap: 8px; padding: 16px 32px; border-radius: 4px; background: var(--gold); color: #000; font-family: 'Exo', sans-serif; font-weight: 800; font-size: 15px; text-decoration: none; cursor: pointer; border: none; box-shadow: 6px 6px 0 rgba(255,149,0,0.5); transition: all 0.15s ease; transform: rotate(-0.5deg); }
+    .ag-btn-primary:hover { transform: translate(-3px,-3px) rotate(-0.5deg); box-shadow: 9px 9px 0 rgba(255,149,0,0.5); }
+    .ag-btn-secondary { display: inline-flex; align-items: center; gap: 8px; padding: 16px 32px; border-radius: 4px; background: transparent; border: 3px solid rgba(245,184,0,0.35); color: var(--ag-text); font-family: 'Exo', sans-serif; font-weight: 700; font-size: 15px; text-decoration: none; cursor: pointer; transition: all 0.2s; transform: rotate(0.5deg); }
+    .ag-btn-secondary:hover { border-color: var(--gold); background: rgba(245,184,0,0.07); }
+
+    /* Ticker */
+    .ag-services-strip { display: flex; gap: 0; border-top: 2px solid rgba(245,184,0,0.12); border-bottom: 2px solid rgba(245,184,0,0.12); overflow: hidden; margin-bottom: 56px; }
+    .ag-ticker-track { display: flex; gap: 0; animation: ticker 30s linear infinite; white-space: nowrap; }
+    .ag-ticker-item { display: flex; align-items: center; gap: 18px; padding: 14px 28px; font-family: 'Exo', sans-serif; font-size: 12px; font-weight: 700; color: var(--ag-muted); letter-spacing: 1px; text-transform: uppercase; border-right: 1px solid rgba(245,184,0,0.08); flex-shrink: 0; }
+    .ag-ticker-item .dot { color: var(--gold); font-size: 16px; }
+    @keyframes ticker { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+    /* Stats */
+    .ag-stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; }
+    .ag-stat { padding: 28px 24px; border: 1px solid rgba(245,184,0,0.08); background: rgba(255,255,255,0.02); text-align: center; transition: all 0.3s; }
+    .ag-stat:hover { background: rgba(245,184,0,0.04); border-color: rgba(245,184,0,0.25); }
+    .ag-stat-num { font-family: 'Exo', sans-serif; font-size: 44px; font-weight: 900; background: linear-gradient(135deg,var(--gold-light),var(--amber)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1; margin-bottom: 8px; }
+    .ag-stat-label { font-size: 13px; color: var(--ag-muted); font-weight: 500; }
+
+    /* Agency service cards */
+    .ag-services-sec { max-width: 1300px; margin: 80px auto; padding: 0 40px; }
+    .ag-section-label { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+    .ag-section-title { font-family: 'Exo', sans-serif; font-size: clamp(32px,5vw,52px); font-weight: 900; color: var(--ag-text); margin-bottom: 44px; line-height: 1.05; }
+    .ag-cards-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+    .ag-service-card { background: var(--ag-card); border: 2px solid rgba(245,184,0,0.1); border-radius: var(--radius-sm); padding: 30px 26px; position: relative; overflow: hidden; transition: all 0.25s cubic-bezier(0.4,0,0.2,1); cursor: default; }
+    .ag-service-card::before { content:''; position: absolute; top: 0; left: 0; right: 0; height: 3px; opacity: 0; transition: opacity 0.3s; }
+    .ag-service-card.c1::before { background: linear-gradient(90deg,#4F8EF7,#2D6BE8); }
+    .ag-service-card.c2::before { background: linear-gradient(90deg,var(--gold),var(--amber)); }
+    .ag-service-card.c3::before { background: linear-gradient(90deg,#9B6BF7,#7C3AED); }
+    .ag-service-card:hover { transform: translateY(-6px); border-color: rgba(245,184,0,0.35); box-shadow: 0 20px 48px rgba(245,184,0,0.08); }
+    .ag-service-card:hover::before { opacity: 1; }
+    .ag-svc-icon { width: 50px; height: 50px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 18px; }
+    .ag-svc-name { font-family: 'Exo', sans-serif; font-size: 18px; font-weight: 700; color: var(--ag-text); margin-bottom: 8px; }
+    .ag-svc-desc { font-size: 13px; color: var(--ag-muted); line-height: 1.7; margin-bottom: 16px; }
+    .ag-svc-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .ag-tag { font-size: 10px; font-weight: 600; padding: 3px 10px; border-radius: 20px; letter-spacing: 0.5px; }
+
+    /* ═══ SECTION 2: BENTO GRID PRICING ═══ */
+    .bento-section { background: var(--bt-bg); padding: 100px 40px; }
+    .bento-inner { max-width: 1300px; margin: 0 auto; }
+    .bento-header { text-align: center; margin-bottom: 60px; }
+    .bento-label { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--bt-primary); background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.2); border-radius: 20px; padding: 6px 18px; margin-bottom: 18px; }
+    .bento-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(36px,5vw,56px); font-weight: 800; color: var(--bt-fg); line-height: 1.1; margin-bottom: 14px; }
+    .bento-sub { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 16px; color: #64748B; max-width: 500px; margin: 0 auto; line-height: 1.7; }
+    .bento-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+    .b-card { background: var(--bt-card); border: 1px solid var(--bt-border); border-radius: var(--radius-lg); padding: 30px; position: relative; overflow: hidden; transition: all 0.3s cubic-bezier(0.4,0,0.2,1); cursor: default; }
+    .b-card:hover { transform: scale(1.02); box-shadow: 0 20px 60px rgba(99,102,241,0.1); }
+    .b-card.feat { grid-column: span 2; background: linear-gradient(135deg,var(--bt-primary),#4F46E5); border-color: transparent; }
+    .b-card.feat:hover { box-shadow: 0 24px 64px rgba(99,102,241,0.35); }
+    .b-card.tall { grid-row: span 2; }
+    .b-card.wide { grid-column: span 3; }
+    .b-card.acc-green { background: linear-gradient(135deg,#059669,#10B981); border-color: transparent; color: #fff; }
+    .b-card.acc-dark { background: var(--bt-fg); border-color: transparent; color: #fff; }
+    .b-card.highlight { background: linear-gradient(135deg,rgba(245,184,0,0.1),rgba(255,149,0,0.05)); border: 2px solid rgba(245,184,0,0.3) !important; }
+    .b-card.highlight:hover { box-shadow: 0 20px 56px rgba(245,184,0,0.15) !important; }
+    .b-badge { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; margin-bottom: 14px; }
+    .b-badge.ind { background: rgba(99,102,241,0.12); color: var(--bt-primary); }
+    .b-badge.wht { background: rgba(255,255,255,0.2); color: #fff; }
+    .b-badge.gld { background: rgba(245,184,0,0.15); color: #92400E; }
+    .b-badge.ros { background: rgba(225,29,72,0.1); color: #BE123C; }
+    .b-name { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 22px; font-weight: 800; margin-bottom: 8px; }
+    .b-desc { font-size: 13px; line-height: 1.7; opacity: 0.72; margin-bottom: 20px; }
+    .b-price { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 48px; font-weight: 800; line-height: 1; margin-bottom: 5px; }
+    .b-price.dk { color: var(--bt-fg); } .b-price.wt { color: #fff; } .b-price.ind { color: var(--bt-primary); }
+    .b-price sup { font-size: 24px; vertical-align: super; }
+    .b-period { font-size: 13px; opacity: 0.65; margin-bottom: 18px; }
+    .b-features { list-style: none; }
+    .b-features li { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; padding: 6px 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
+    .b-features.wt li { border-bottom-color: rgba(255,255,255,0.1); }
+    .b-features li:last-child { border-bottom: none; }
+    .b-chk { font-size: 13px; flex-shrink: 0; margin-top: 1px; }
+    .b-chk.ind { color: var(--bt-primary); } .b-chk.wt { color: rgba(255,255,255,0.9); } .b-chk.gr { color: var(--bt-accent); }
+    .b-cta { display: inline-flex; align-items: center; gap: 8px; padding: 12px 26px; border-radius: 50px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 14px; text-decoration: none; cursor: pointer; border: none; transition: all 0.25s; }
+    .b-cta.wt { background: #fff; color: var(--bt-primary); } .b-cta.wt:hover { background: #F0F0FF; transform: translateY(-2px); }
+    .b-cta.ind { background: var(--bt-primary); color: #fff; box-shadow: 0 6px 20px rgba(99,102,241,0.28); } .b-cta.ind:hover { box-shadow: 0 10px 30px rgba(99,102,241,0.48); transform: translateY(-2px); }
+    .b-cta.out { background: transparent; border: 2px solid var(--bt-border); color: var(--bt-fg); } .b-cta.out:hover { border-color: var(--bt-primary); color: var(--bt-primary); }
+    .b-stat-num { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 44px; font-weight: 800; line-height: 1; margin-bottom: 6px; }
+    .b-pill { font-size: 11px; font-weight: 600; padding: 5px 12px; border-radius: 20px; display: inline-block; margin: 3px; }
+    .b-pill.ind { background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.15); color: var(--bt-primary); }
+    .b-pill.dk { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; }
+
+    /* ═══ SECTION 3: STUDIO HERO — AURORA ═══ */
+    .studio-hero { min-height: 100vh; background: var(--st-bg); position: relative; overflow: hidden; display: flex; flex-direction: column; }
+    .aurora { position: absolute; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0; }
+    .a1 { width: 700px; height: 500px; top: -150px; left: -100px; background: radial-gradient(ellipse,rgba(225,29,72,0.22) 0%,transparent 70%); animation: drift 8s ease-in-out infinite alternate; }
+    .a2 { width: 600px; height: 600px; top: 80px; right: -150px; background: radial-gradient(ellipse,rgba(37,99,235,0.18) 0%,transparent 70%); animation: drift 9s ease-in-out infinite alternate-reverse; }
+    .a3 { width: 500px; height: 400px; bottom: 80px; left: 30%; background: radial-gradient(ellipse,rgba(155,107,247,0.15) 0%,transparent 70%); animation: drift 7s ease-in-out infinite alternate; animation-delay: 2s; }
+    .a4 { width: 350px; height: 280px; bottom: -50px; right: 15%; background: radial-gradient(ellipse,rgba(245,184,0,0.1) 0%,transparent 70%); animation: drift 10s ease-in-out infinite alternate-reverse; }
+    @keyframes drift { 0%{transform:translate(0,0) scale(1)} 100%{transform:translate(25px,-18px) scale(1.07)} }
+    .st-grid { position: absolute; inset: 0; z-index: 0; pointer-events: none; background-image: linear-gradient(rgba(225,29,72,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,0.03) 1px,transparent 1px); background-size: 56px 56px; }
+    .st-inner { position: relative; z-index: 1; max-width: 1300px; margin: 0 auto; width: 100%; padding: 120px 40px 80px; display: flex; flex-direction: column; }
+    .st-badge { display: inline-flex; align-items: center; gap: 10px; background: rgba(225,29,72,0.1); border: 1px solid rgba(225,29,72,0.28); border-radius: 50px; padding: 8px 22px; margin-bottom: 36px; align-self: flex-start; }
+    .st-badge span { font-size: 12px; font-weight: 700; color: var(--st-secondary); letter-spacing: 1.5px; text-transform: uppercase; }
+    .st-headline { font-family: 'Space Grotesk', sans-serif; font-size: clamp(48px,7.5vw,90px); font-weight: 800; line-height: 1.0; color: var(--st-text); margin-bottom: 22px; letter-spacing: -1.5px; }
+    .st-headline .g-rose { background: linear-gradient(135deg,#FF6B9D,var(--st-primary),#C2185B); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .st-headline .g-blue { background: linear-gradient(135deg,#60A5FA,var(--st-accent),#1D4ED8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .st-sub { font-size: 18px; color: rgba(248,248,255,0.58); max-width: 560px; line-height: 1.75; margin-bottom: 44px; }
+    .st-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 72px; }
+    .st-btn { padding: 16px 36px; border-radius: 50px; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 15px; text-decoration: none; border: none; cursor: pointer; transition: all 0.3s; }
+    .st-btn.primary { background: linear-gradient(135deg,var(--st-primary),#C2185B); color: #fff; box-shadow: 0 8px 32px rgba(225,29,72,0.4); }
+    .st-btn.primary:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(225,29,72,0.55); }
+    .st-btn.ghost { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); color: #fff; backdrop-filter: blur(10px); }
+    .st-btn.ghost:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.3); }
+    .st-cards-row { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; }
+    .st-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.09); border-radius: var(--radius); padding: 26px 20px; backdrop-filter: blur(12px); transition: all 0.3s; position: relative; overflow: hidden; }
+    .st-card::before { content:''; position: absolute; top: 0; left: 0; right: 0; height: 2px; opacity: 0; transition: opacity 0.3s; }
+    .st-card.rose::before { background: linear-gradient(90deg,var(--st-primary),var(--st-secondary)); }
+    .st-card.blue::before { background: linear-gradient(90deg,var(--st-accent),#60A5FA); }
+    .st-card.purple::before { background: linear-gradient(90deg,#9B6BF7,#C084FC); }
+    .st-card.gold::before { background: linear-gradient(90deg,var(--gold),var(--amber)); }
+    .st-card:hover { transform: translateY(-6px); background: rgba(255,255,255,0.09); border-color: rgba(255,255,255,0.18); }
+    .st-card:hover::before { opacity: 1; }
+    .st-card.rose:hover { box-shadow: 0 16px 40px rgba(225,29,72,0.18); }
+    .st-card.blue:hover { box-shadow: 0 16px 40px rgba(37,99,235,0.18); }
+    .st-card.purple:hover { box-shadow: 0 16px 40px rgba(155,107,247,0.18); }
+    .st-card.gold:hover { box-shadow: 0 16px 40px rgba(245,184,0,0.12); }
+    .st-icon { width: 46px; height: 46px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+    .st-icon.rose { background: rgba(225,29,72,0.14); }
+    .st-icon.blue { background: rgba(37,99,235,0.14); }
+    .st-icon.purple { background: rgba(155,107,247,0.14); }
+    .st-icon.gold { background: rgba(245,184,0,0.1); }
+    .st-name { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 700; color: var(--st-text); margin-bottom: 7px; }
+    .st-desc { font-size: 12px; color: rgba(248,248,255,0.48); line-height: 1.7; margin-bottom: 12px; }
+    .st-price { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 800; }
+    .st-price.rose { color: var(--st-secondary); } .st-price.blue { color: #60A5FA; } .st-price.purple { color: #C084FC; } .st-price.gold { color: var(--gold-light); }
+    .st-note { font-size: 11px; color: rgba(248,248,255,0.32); }
+    .st-stats-strip { background: rgba(255,255,255,0.035); border-top: 1px solid rgba(255,255,255,0.07); padding: 32px 40px; display: flex; align-items: center; justify-content: center; gap: 0; position: relative; z-index: 1; }
+    .st-stat { text-align: center; padding: 0 44px; border-right: 1px solid rgba(255,255,255,0.07); }
+    .st-stat:last-child { border-right: none; }
+    .st-stat-num { font-family: 'Space Grotesk', sans-serif; font-size: 38px; font-weight: 800; background: linear-gradient(135deg,var(--st-secondary),#FB7185); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 4px; }
+    .st-stat-label { font-size: 12px; color: rgba(248,248,255,0.38); font-weight: 500; }
+
+    /* FINAL CTA */
+    .final-cta { background: linear-gradient(135deg,#0A0A0F 0%,#12121A 100%); border-top: 1px solid rgba(245,184,0,0.12); padding: 100px 40px; text-align: center; }
+    .final-inner { max-width: 680px; margin: 0 auto; }
+    .final-cta h2 { font-family: 'Exo', sans-serif; font-size: clamp(36px,5vw,60px); font-weight: 900; color: #F0F0F5; margin-bottom: 18px; }
+    .final-cta h2 span { background: linear-gradient(135deg,var(--gold-light),var(--amber)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .final-cta p { font-size: 17px; color: #8888AA; margin-bottom: 40px; line-height: 1.7; }
+    .final-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .f-btn { padding: 16px 36px; border-radius: 50px; background: linear-gradient(135deg,var(--gold),var(--amber)); color: #000; font-family: 'Exo', sans-serif; font-weight: 800; font-size: 15px; text-decoration: none; transition: all 0.3s; box-shadow: 0 8px 28px rgba(245,184,0,0.32); }
+    .f-btn:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(245,184,0,0.52); }
+    .f-btn-g { padding: 16px 36px; border-radius: 50px; background: transparent; border: 2px solid rgba(245,184,0,0.28); color: #F0F0F5; font-family: 'Exo', sans-serif; font-weight: 700; font-size: 15px; text-decoration: none; transition: all 0.3s; }
+    .f-btn-g:hover { border-color: var(--gold); background: rgba(245,184,0,0.05); }
+
+    /* RESPONSIVE */
+    @media (max-width:1024px) {
+      .ag-cards-grid { grid-template-columns: repeat(2,1fr); }
+      .bento-grid { grid-template-columns: repeat(2,1fr); }
+      .b-card.feat,.b-card.wide { grid-column: span 2; }
+      .b-card.tall { grid-row: span 1; }
+      .st-cards-row { grid-template-columns: repeat(2,1fr); }
+      .ag-stats { grid-template-columns: repeat(2,1fr); }
+    }
+    @media (max-width:768px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .agency-hero, .bento-section { padding: 80px 20px 60px; }
+      .st-inner { padding: 100px 20px 60px; }
+      .ag-cards-grid, .bento-grid, .st-cards-row { grid-template-columns: 1fr; }
+      .b-card.feat,.b-card.wide { grid-column: span 1; }
+      .st-stats-strip { flex-wrap: wrap; gap: 24px; }
+      .st-stat { border-right: none; padding: 0 20px; }
+      .ag-services-sec { padding: 0 20px; }
+      .final-cta { padding: 60px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">
+      <span class="bee">🐝</span>
+      <span>Digital Bee</span>
+    </a>
+    <div class="nav-links">
+      <a href="#agency" class="nav-link">Agency</a>
+      <a href="#pricing" class="nav-link">Pricing</a>
+      <a href="#studio" class="nav-link">Studio</a>
+      <a href="index.html" class="nav-link">All Services →</a>
+    </div>
+    <a href="mailto:hello@digitalbee.in" class="nav-cta">Get a Quote</a>
+  </nav>
+
+  <!-- ═══ 1. AGENCY HERO — NEO BRUTALISM DARK ═══ -->
+  <section class="agency-hero" id="agency">
+    <div class="ag-grid-bg"></div>
+    <div class="ag-block-1"></div>
+    <div class="ag-block-2"></div>
+    <div class="ag-inner">
+      <div class="ag-badge">
+        <div class="ag-badge-dot"></div>
+        <span>Digital Bee Agency — Live & Growing</span>
+      </div>
+      <h1 class="ag-headline">
+        We Build<br />
+        <span class="stroke">Digital</span><br />
+        <span class="fill-gold">Empires.</span>
+      </h1>
+      <p class="ag-sub">From websites that convert to apps that scale — we are the full-stack growth engine your business needs. Technology, marketing, and automation under one roof.</p>
+      <div class="ag-actions">
+        <a href="#pricing" class="ag-btn-primary">
+          <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          View Pricing
+        </a>
+        <a href="mailto:hello@digitalbee.in" class="ag-btn-secondary">Book a Free Call →</a>
+      </div>
+      <div class="ag-services-strip">
+        <div class="ag-ticker-track">
+          <div class="ag-ticker-item"><span class="dot">✦</span>Website Design</div>
+          <div class="ag-ticker-item"><span class="dot">✦</span>SEO & Growth</div>
+          <div class="ag-ticker-item"><span class="dot">✦</span>Google Ads</div>
+          <div class="ag-ticker-item"><span class="dot">✦</span>Meta Ads</div>
+          <div class="ag-ticker-item"><span class="dot">✦</span>App Development</div>
+          <div class="ag-ticker-item"><span class="dot">✦</span>AI Integration</div>
+          <div class="ag-ticker-item"><span class="dot">✦</span>CRM & Automation</div>
+          <div class="ag-ticker-item"><span class="dot">✦</span>Shopify & E-Commerce</div>
+          <div class="ag-ticker-item"><span class="dot">✦</span>Branding</div>
+          <div class="ag-ticker-item"><span class="dot">✦</span>Website Design</div>
+          <div class="ag-ticker-item"><span class="dot">✦</span>SEO & Growth</div>
+          <div class="ag-ticker-item"><span class="dot">✦</span>Google Ads</div>
+          <div class="ag-ticker-item"><span class="dot">✦</span>Meta Ads</div>
+          <div class="ag-ticker-item"><span class="dot">✦</span>App Development</div>
+          <div class="ag-ticker-item"><span class="dot">✦</span>AI Integration</div>
+          <div class="ag-ticker-item"><span class="dot">✦</span>CRM & Automation</div>
+          <div class="ag-ticker-item"><span class="dot">✦</span>Shopify & E-Commerce</div>
+          <div class="ag-ticker-item"><span class="dot">✦</span>Branding</div>
+        </div>
+      </div>
+      <div class="ag-stats">
+        <div class="ag-stat"><div class="ag-stat-num">150+</div><div class="ag-stat-label">Clients Served</div></div>
+        <div class="ag-stat"><div class="ag-stat-num">₹8Cr+</div><div class="ag-stat-label">Revenue Generated</div></div>
+        <div class="ag-stat"><div class="ag-stat-num">98%</div><div class="ag-stat-label">Client Retention</div></div>
+        <div class="ag-stat"><div class="ag-stat-num">4.9★</div><div class="ag-stat-label">Average Rating</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Agency Services Cards -->
+  <div class="ag-services-sec">
+    <div class="ag-section-label">What We Do Best</div>
+    <div class="ag-section-title">Core Agency Services</div>
+    <div class="ag-cards-grid">
+      <div class="ag-service-card c1">
+        <div class="ag-svc-icon" style="background:rgba(79,142,247,0.12)">
+          <svg width="26" height="26" fill="none" viewBox="0 0 24 24" stroke="#4F8EF7" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        </div>
+        <div class="ag-svc-name">Web & App Development</div>
+        <div class="ag-svc-desc">Custom websites, Shopify stores, mobile apps, and web platforms built to convert and scale with your business.</div>
+        <div class="ag-svc-tags">
+          <span class="ag-tag" style="background:rgba(79,142,247,0.1);color:#4F8EF7;border:1px solid rgba(79,142,247,0.2)">WordPress</span>
+          <span class="ag-tag" style="background:rgba(79,142,247,0.1);color:#4F8EF7;border:1px solid rgba(79,142,247,0.2)">Shopify</span>
+          <span class="ag-tag" style="background:rgba(79,142,247,0.1);color:#4F8EF7;border:1px solid rgba(79,142,247,0.2)">React Native</span>
+        </div>
+      </div>
+      <div class="ag-service-card c2">
+        <div class="ag-svc-icon" style="background:rgba(245,184,0,0.1)">
+          <svg width="26" height="26" fill="none" viewBox="0 0 24 24" stroke="#F5B800" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        </div>
+        <div class="ag-svc-name">SEO & Digital Marketing</div>
+        <div class="ag-svc-desc">Rank higher, reach more, convert better. Full-stack SEO, Google Ads, Meta Ads, and LinkedIn campaigns.</div>
+        <div class="ag-svc-tags">
+          <span class="ag-tag" style="background:rgba(245,184,0,0.1);color:#B45309;border:1px solid rgba(245,184,0,0.22)">Local SEO</span>
+          <span class="ag-tag" style="background:rgba(245,184,0,0.1);color:#B45309;border:1px solid rgba(245,184,0,0.22)">Google Ads</span>
+          <span class="ag-tag" style="background:rgba(245,184,0,0.1);color:#B45309;border:1px solid rgba(245,184,0,0.22)">Meta Ads</span>
+        </div>
+      </div>
+      <div class="ag-service-card c3">
+        <div class="ag-svc-icon" style="background:rgba(155,107,247,0.1)">
+          <svg width="26" height="26" fill="none" viewBox="0 0 24 24" stroke="#9B6BF7" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        </div>
+        <div class="ag-svc-name">AI & Automation</div>
+        <div class="ag-svc-desc">Integrate AI agents, automate workflows, and build CRM pipelines that generate leads 24/7 without you.</div>
+        <div class="ag-svc-tags">
+          <span class="ag-tag" style="background:rgba(155,107,247,0.1);color:#9B6BF7;border:1px solid rgba(155,107,247,0.2)">n8n</span>
+          <span class="ag-tag" style="background:rgba(155,107,247,0.1);color:#9B6BF7;border:1px solid rgba(155,107,247,0.2)">Zapier</span>
+          <span class="ag-tag" style="background:rgba(155,107,247,0.1);color:#9B6BF7;border:1px solid rgba(155,107,247,0.2)">GPT-4</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ 2. BENTO GRID PRICING ═══ -->
+  <section class="bento-section" id="pricing">
+    <div class="bento-inner">
+      <div class="bento-header">
+        <div class="bento-label">Transparent Pricing</div>
+        <div class="bento-title">Plans Built to Scale With You</div>
+        <div class="bento-sub">No hidden fees. No lock-ins. Start where you are, grow as you need.</div>
+      </div>
+      <div class="bento-grid">
+
+        <!-- Featured Growth — 2 cols -->
+        <div class="b-card feat">
+          <div class="b-badge wht">⭐ Most Popular</div>
+          <div class="b-name" style="color:#fff">Growth Package</div>
+          <div class="b-desc" style="color:rgba(255,255,255,0.72)">The complete digital growth engine — website, SEO, ads, and CRM all working together.</div>
+          <div class="b-price wt"><sup>₹</sup>45,000</div>
+          <div class="b-period" style="color:rgba(255,255,255,0.6)">per month</div>
+          <ul class="b-features wt" style="margin-bottom:24px">
+            <li style="color:rgba(255,255,255,0.82)"><span class="b-chk wt">✦</span>Custom Website (up to 15 pages)</li>
+            <li style="color:rgba(255,255,255,0.82)"><span class="b-chk wt">✦</span>Full SEO Campaign</li>
+            <li style="color:rgba(255,255,255,0.82)"><span class="b-chk wt">✦</span>Google + Meta Ads Management</li>
+            <li style="color:rgba(255,255,255,0.82)"><span class="b-chk wt">✦</span>CRM + Email Marketing</li>
+            <li style="color:rgba(255,255,255,0.82)"><span class="b-chk wt">✦</span>Dedicated Account Manager</li>
+          </ul>
+          <a href="mailto:hello@digitalbee.in" class="b-cta wt">Get Started →</a>
+        </div>
+
+        <!-- Starter — tall -->
+        <div class="b-card tall">
+          <div class="b-badge ind">Starter</div>
+          <div class="b-name" style="color:var(--bt-fg)">Launch Package</div>
+          <div class="b-price ind" style="font-size:42px;margin:14px 0 5px"><sup style="font-size:20px">₹</sup>15,000</div>
+          <div class="b-period" style="color:#64748B">one-time / per month</div>
+          <ul class="b-features" style="margin:18px 0 0;color:var(--bt-fg)">
+            <li><span class="b-chk ind">✦</span>5-Page WordPress Site</li>
+            <li><span class="b-chk ind">✦</span>Basic SEO Setup</li>
+            <li><span class="b-chk ind">✦</span>Mobile Responsive</li>
+            <li><span class="b-chk ind">✦</span>Google Analytics</li>
+            <li><span class="b-chk ind">✦</span>1 Month Support</li>
+          </ul>
+          <a href="mailto:hello@digitalbee.in" class="b-cta out" style="margin-top:22px;width:100%;justify-content:center">Get Started</a>
+        </div>
+
+        <!-- Scale dark -->
+        <div class="b-card acc-dark">
+          <div class="b-badge wht">Enterprise</div>
+          <div class="b-name" style="color:#fff">Scale Package</div>
+          <div class="b-price wt" style="font-size:38px;margin:10px 0 4px"><sup style="font-size:18px">₹</sup>1,20,000</div>
+          <div class="b-period">per month</div>
+          <div style="margin-top:16px">
+            <span class="b-pill dk">Custom Web App</span><span class="b-pill dk">Mobile App</span><span class="b-pill dk">AI Integration</span><span class="b-pill dk">All Ads</span><span class="b-pill dk">Automation</span><span class="b-pill dk">CRO</span>
+          </div>
+        </div>
+
+        <!-- Stat: Clients -->
+        <div class="b-card" style="text-align:center;background:linear-gradient(135deg,rgba(99,102,241,0.07),var(--bt-card))">
+          <div class="b-stat-num" style="color:var(--bt-primary)">150+</div>
+          <div class="b-stat-label" style="color:#64748B">Happy Clients</div>
+          <div style="margin-top:10px;font-size:26px">🏆</div>
+        </div>
+
+        <!-- Stat: Retention -->
+        <div class="b-card" style="text-align:center">
+          <div class="b-stat-num" style="color:var(--bt-accent)">98%</div>
+          <div class="b-stat-label" style="color:#64748B">Retention Rate</div>
+          <div style="margin-top:10px;font-size:26px">💎</div>
+        </div>
+
+        <!-- Combo — wide highlighted -->
+        <div class="b-card wide highlight">
+          <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px">
+            <div>
+              <div class="b-badge gld">🐝 Best Value — Agency + Studio Combo</div>
+              <div class="b-name" style="color:var(--bt-fg);font-size:26px;margin:8px 0 6px">Full-Service Package</div>
+              <div style="font-size:14px;color:#64748B;max-width:460px;line-height:1.7">Agency Growth + Studio Creator Pro. Everything your brand needs in one seamless partnership.</div>
+            </div>
+            <div style="text-align:center;flex-shrink:0">
+              <div style="font-size:12px;color:#64748B;margin-bottom:4px">Starting at</div>
+              <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:50px;font-weight:900;color:#92400E;line-height:1"><sup style="font-size:24px">₹</sup>85,000</div>
+              <div style="font-size:13px;color:#64748B;margin-bottom:14px">/month</div>
+              <a href="mailto:hello@digitalbee.in" class="b-cta ind">Claim This Deal →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Studio Content Essentials -->
+        <div class="b-card" style="background:linear-gradient(135deg,rgba(225,29,72,0.06),var(--bt-card));border-color:rgba(225,29,72,0.14)">
+          <div class="b-badge ros">🎬 Studio</div>
+          <div class="b-name" style="color:var(--bt-fg);font-size:20px">Content Essentials</div>
+          <div class="b-price" style="font-size:38px;color:#BE123C;margin:10px 0 4px"><sup style="font-size:18px">₹</sup>18,000</div>
+          <div class="b-period" style="color:#64748B">per month</div>
+          <ul class="b-features" style="margin-top:14px;color:var(--bt-fg)">
+            <li><span class="b-chk" style="color:#E11D48">✦</span>12 Posts/Month</li>
+            <li><span class="b-chk" style="color:#E11D48">✦</span>4 Reels/Month</li>
+            <li><span class="b-chk" style="color:#E11D48">✦</span>IG + Facebook Mgmt</li>
+          </ul>
+        </div>
+
+        <!-- Studio Creator Pro -->
+        <div class="b-card acc-green">
+          <div class="b-badge wht">⭐ Studio Best Value</div>
+          <div class="b-name" style="color:#fff;font-size:20px">Creator Pro</div>
+          <div class="b-price wt" style="font-size:38px;margin:10px 0 4px"><sup style="font-size:18px">₹</sup>55,000</div>
+          <div class="b-period">per month</div>
+          <ul class="b-features wt" style="margin-top:12px">
+            <li style="color:rgba(255,255,255,0.82)"><span class="b-chk wt">✦</span>20 Posts + 8 Reels</li>
+            <li style="color:rgba(255,255,255,0.82)"><span class="b-chk wt">✦</span>1 Video Production</li>
+            <li style="color:rgba(255,255,255,0.82)"><span class="b-chk wt">✦</span>All 4 Platforms</li>
+          </ul>
+        </div>
+
+        <!-- View all -->
+        <div class="b-card" style="display:flex;align-items:center;justify-content:center;text-align:center;min-height:150px;background:var(--bt-muted)">
+          <div>
+            <div style="font-size:11px;color:#64748B;font-weight:600;margin-bottom:12px;letter-spacing:1px;text-transform:uppercase">See Everything</div>
+            <a href="index.html" class="b-cta ind">View All Services →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 3. STUDIO HERO — AURORA UI ═══ -->
+  <section class="studio-hero" id="studio">
+    <div class="aurora a1"></div>
+    <div class="aurora a2"></div>
+    <div class="aurora a3"></div>
+    <div class="aurora a4"></div>
+    <div class="st-grid"></div>
+    <div class="st-inner">
+      <div class="st-badge"><span>🎬 Digital Bee Studio — Creative Division</span></div>
+      <h1 class="st-headline">
+        Content That<br />
+        <span class="g-rose">Stops</span> the<br />
+        <span class="g-blue">Scroll.</span>
+      </h1>
+      <p class="st-sub">Social media management, video production, drone shoots, motion graphics, and podcasts. Everything a brand needs to own its visual identity.</p>
+      <div class="st-actions">
+        <a href="mailto:hello@digitalbee.in" class="st-btn primary">Start Creating →</a>
+        <a href="index.html" class="st-btn ghost">View Studio Packages</a>
+      </div>
+      <div class="st-cards-row">
+        <div class="st-card rose">
+          <div class="st-icon rose">
+            <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#E11D48" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.069A1 1 0 0121 8.868v6.264a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"/></svg>
+          </div>
+          <div class="st-name">Video Production</div>
+          <div class="st-desc">Corporate, commercial, reels, and brand films that tell your story.</div>
+          <div class="st-price rose">₹15,000+</div>
+          <div class="st-note">Per video</div>
+        </div>
+        <div class="st-card blue">
+          <div class="st-icon blue">
+            <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#2563EB" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <div class="st-name">Photography</div>
+          <div class="st-desc">Product shots, corporate portraits, and commercial campaigns.</div>
+          <div class="st-price blue">₹8,000+</div>
+          <div class="st-note">Per session</div>
+        </div>
+        <div class="st-card purple">
+          <div class="st-icon purple">
+            <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#9B6BF7" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2" ry="2" stroke-linecap="round" stroke-linejoin="round"/><path stroke-linecap="round" stroke-linejoin="round" d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <div class="st-name">Social Media</div>
+          <div class="st-desc">Full management — content, scheduling, community, and analytics.</div>
+          <div class="st-price purple">₹12,000+</div>
+          <div class="st-note">Per platform / month</div>
+        </div>
+        <div class="st-card gold">
+          <div class="st-icon gold">
+            <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#F5B800" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/></svg>
+          </div>
+          <div class="st-name">Drone Shoots</div>
+          <div class="st-desc">Aerial cinematography for real estate, events, and brand films.</div>
+          <div class="st-price gold">₹15,000+</div>
+          <div class="st-note">Per session</div>
+        </div>
+      </div>
+    </div>
+    <div class="st-stats-strip">
+      <div class="st-stat"><div class="st-stat-num">500+</div><div class="st-stat-label">Videos Produced</div></div>
+      <div class="st-stat"><div class="st-stat-num">2M+</div><div class="st-stat-label">Organic Views</div></div>
+      <div class="st-stat"><div class="st-stat-num">80+</div><div class="st-stat-label">Brand Shoots</div></div>
+      <div class="st-stat"><div class="st-stat-num">4.9★</div><div class="st-stat-label">Client Rating</div></div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta">
+    <div class="final-inner">
+      <h2>Ready to <span>Dominate</span> Your Market?</h2>
+      <p>Book a free strategy call and get a custom proposal within 48 hours. No commitment required.</p>
+      <div class="final-actions">
+        <a href="mailto:hello@digitalbee.in" class="f-btn">Get a Free Proposal</a>
+        <a href="index.html" class="f-btn-g">View All Services →</a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => {
+            e.target.style.opacity = '1';
+            e.target.style.transform = 'translateY(0)';
+          }, parseInt(e.target.dataset.delay || 0));
+        }
+      });
+    }, { threshold: 0.07 });
+    document.querySelectorAll('.ag-service-card,.ag-stat,.b-card,.st-card,.st-stat').forEach((el, i) => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(26px)';
+      el.style.transition = `opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease, border-color 0.3s ease, background 0.25s ease`;
+      el.dataset.delay = (i % 5) * 75;
+      obs.observe(el);
+    });
+  </script>
+</body>
+</html>
