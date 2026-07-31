@@ -8,10 +8,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     /* PAGE SHUTTER EFFECT */
-    .shutter-top, .shutter-bottom { position: fixed; left: 0; right: 0; height: 50vh; background: #FFFFFF; transition: transform 0.8s cubic-bezier(0.85, 0, 0.15, 1) 0.1s; pointer-events: none; }
+    .shutter-top, .shutter-bottom { position: fixed; left: 0; right: 0; height: 50vh; background: #0A0A0F; transition: transform 0.8s cubic-bezier(0.85, 0, 0.15, 1) 0.1s; pointer-events: none; }
     .shutter-top { z-index: 999999; top: 0; display: flex; align-items: flex-end; justify-content: center; }
     .shutter-bottom { z-index: 999998; bottom: 0; }
-    html.light .shutter-top, html.light .shutter-bottom { background: #000000; }
+    html.light .shutter-top, html.light .shutter-bottom { background: #FFFFFF; }
     body.shutter-open .shutter-top { transform: translateY(-100%); }
     body.shutter-open .shutter-bottom { transform: translateY(100%); }
     .s-logo-dark { display: block; height: 130px; width: auto; transform: translateY(50%); transition: opacity 0.5s ease; }
@@ -517,8 +517,8 @@
 <body>
   <!-- Page Shutter Effect -->
   <div class="shutter-top">
-    <img src="logo-light.png" alt="Digital Bee" class="s-logo-dark" />
-    <img src="logo-dark.png" alt="Digital Bee" class="s-logo-light" />
+    <img src="logo-dark.png" alt="Digital Bee" class="s-logo-dark" />
+    <img src="logo-light.png" alt="Digital Bee" class="s-logo-light" />
   </div>
   <div class="shutter-bottom"></div>
 
@@ -1054,6 +1054,7 @@
   </script>
 </body>
 </html>
+
 
 
 
