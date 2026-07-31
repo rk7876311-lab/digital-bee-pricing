@@ -14,10 +14,11 @@
     .shutter-bottom { bottom: 0; }
     body.shutter-open .shutter-top { transform: translateY(-100%); }
     body.shutter-open .shutter-bottom { transform: translateY(100%); }
-    .s-logo-dark { display: block; height: 72px; width: auto; transform: translateY(50%); }
-    .s-logo-light { display: none; height: 72px; width: auto; transform: translateY(50%); }
+    .s-logo-dark { display: block; height: 94px; width: auto; transform: translateY(50%); transition: opacity 0.5s ease; }
+    .s-logo-light { display: none; height: 94px; width: auto; transform: translateY(50%); transition: opacity 0.5s ease; }
     html.light .s-logo-dark { display: none; }
     html.light .s-logo-light { display: block; }
+    body.shutter-open .s-logo-dark, body.shutter-open .s-logo-light { opacity: 0; }
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     :root {
@@ -633,5 +634,6 @@
   </script>
 </body>
 </html>
+
 
 
