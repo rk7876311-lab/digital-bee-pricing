@@ -7,6 +7,11 @@
   <meta name="description" content="Digital Bee is a full-service digital agency and creative studio helping businesses grow through technology, creativity, marketing, and automation." />
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;600;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
+    /* PAGE SHUTTER EFFECT */
+    .shutter-top, .shutter-bottom { position: fixed; left: 0; right: 0; height: 50vh; background: var(--gold, #F5B800); z-index: 999999; transition: transform 0.8s cubic-bezier(0.85, 0, 0.15, 1) 0.1s; pointer-events: none; }
+    .shutter-top { top: 0; } .shutter-bottom { bottom: 0; }
+    body.shutter-open .shutter-top { transform: translateY(-100%); }
+    body.shutter-open .shutter-bottom { transform: translateY(100%); }
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     :root {
@@ -264,6 +269,9 @@
   </style>
 </head>
 <body>
+  <!-- Page Shutter Effect -->
+  <div class="shutter-top"></div>
+  <div class="shutter-bottom"></div>
 
   <!-- NAV -->
   <nav>
@@ -611,5 +619,9 @@
       obs.observe(el);
     });
   </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => { setTimeout(() => document.body.classList.add('shutter-open'), 50); });
+  </script>
 </body>
 </html>
+
