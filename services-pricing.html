@@ -79,10 +79,9 @@
       display:flex; align-items:center; justify-content:space-between;
       transition:background 0.35s ease, border-color 0.35s ease;
     }
-    .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
-    .nav-logo .bee{font-size:22px;animation:buzz 2.5s ease-in-out infinite;}
-    .nav-logo-text{font-family:'Exo',sans-serif;font-size:19px;font-weight:900;color:var(--text-primary);transition:color 0.35s;}
-    @keyframes buzz{0%,100%{transform:rotate(-5deg) scale(1)}25%{transform:rotate(5deg) scale(1.12)}50%{transform:rotate(-3deg) scale(1.06)}75%{transform:rotate(3deg) scale(1.09)}}
+    .nav-logo{display:flex;align-items:center;text-decoration:none;}
+    .nav-logo img{height:44px;width:auto;object-fit:contain;transition:opacity 0.2s;}
+    .nav-logo:hover img{opacity:0.85;}
 
     .nav-right{display:flex;align-items:center;gap:10px;}
     .nav-link{font-family:'Exo',sans-serif;font-size:13px;font-weight:600;color:var(--text-secondary);text-decoration:none;padding:7px 14px;border-radius:var(--radius);transition:all 0.2s;}
@@ -394,8 +393,7 @@
   <!-- ═══ NAV ═══ -->
   <nav>
     <a href="homepage.html" class="nav-logo">
-      <span class="bee">🐝</span>
-      <span class="nav-logo-text">Digital Bee</span>
+      <img src="logo.png" alt="Digital Bee — Build · Brand · Grow" />
     </a>
     <div class="nav-right">
       <a href="homepage.html" class="nav-link">Home</a>
