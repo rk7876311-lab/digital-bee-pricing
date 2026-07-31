@@ -15,29 +15,66 @@
       --bt-bg: #F5F3FF; --bt-card: #FFFFFF; --bt-primary: #6366F1; --bt-accent: #059669; --bt-fg: #1E1B4B; --bt-muted: #EBEFF9; --bt-border: #E0E7FF;
       --st-bg: #06020F; --st-primary: #E11D48; --st-secondary: #FB7185; --st-accent: #2563EB; --st-text: #F8F8FF;
       --radius: 16px; --radius-sm: 10px; --radius-lg: 24px;
+      
+      /* Neo Brutalism Nav & Theme vars */
+      --nav-bg: rgba(10,10,15,0.9);
+      --border: rgba(245,184,0,0.12);
+      --border-hover: rgba(245,184,0,0.45);
+      --text-primary: #F0F0F5;
+      --text-secondary: #8888AA;
+      --bg-card: #111118;
     }
-    body { font-family: 'Inter', sans-serif; background: var(--ag-bg); overflow-x: hidden; }
+    
+    html.light {
+      --ag-bg: #FFFDF5; --ag-card: #FFFFFF; --ag-text: #0A0A0F; --ag-muted: #444458;
+      --st-bg: #FFFDF5; --st-text: #0A0A0F;
+      --bt-bg: #F8FAFC; --bt-card: #FFFFFF;
+      --nav-bg: rgba(255,253,245,0.93);
+      --border: rgba(10,10,15,0.1);
+      --border-hover: rgba(245,184,0,0.5);
+      --text-primary: #0A0A0F;
+      --text-secondary: #444458;
+      --bg-card: #FFFFFF;
+    }
+    
+    body { font-family: 'Inter', sans-serif; background: var(--ag-bg); color: var(--ag-text); overflow-x: hidden; transition: background 0.35s ease, color 0.35s ease; }
 
     /* NAV */
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; background: rgba(10,10,15,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(245,184,0,0.15); padding: 0 40px; height: 80px; display: flex; align-items: center; justify-content: space-between; }
-    .nav-logo { display: flex; align-items: center; text-decoration: none; }
-    .nav-logo img { height: 72px; width: auto; object-fit: contain; transition: opacity 0.2s; }
-    .nav-logo:hover img { opacity: 0.8; }
-    .logo-dark-mode { display: block; }
-    .logo-light-mode { display: none; }
-    html.light .logo-dark-mode { display: none; }
-    html.light .logo-light-mode { display: block; }
-    /* Theme toggle btn */
-    .theme-toggle { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.08); border: 1.5px solid rgba(245,184,0,0.35); color: #F0F0F5; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
-    .theme-toggle:hover { background: rgba(245,184,0,0.12); border-color: var(--gold); }
-    .theme-toggle svg { width: 18px; height: 18px; }
-    .icon-sun { display: none; } .icon-moon { display: block; }
+    nav{
+      position:fixed; top:0; left:0; right:0; z-index:200;
+      background:var(--nav-bg); backdrop-filter:blur(20px);
+      border-bottom:2px solid var(--border);
+      padding:0 40px; height:80px;
+      display:flex; align-items:center; justify-content:space-between;
+      transition:background 0.35s ease, border-color 0.35s ease;
+    }
+    .nav-logo{display:flex;align-items:center;text-decoration:none;}
+    .nav-logo img{height:72px;width:auto;object-fit:contain;transition:opacity 0.2s;}
+    .nav-logo:hover img{opacity:0.8;}
+    /* Show dark-mode (white) logo by default; swap on light mode */
+    .logo-dark-mode{display:block;}
+    .logo-light-mode{display:none;}
+    html.light .logo-dark-mode{display:none;}
+    html.light .logo-light-mode{display:block;}
+    
+    .nav-right { display:flex;align-items:center;gap:10px; }
+    .nav-link{font-family:'Exo',sans-serif;font-size:16px;font-weight:600;color:var(--text-secondary);text-decoration:none;padding:7px 14px;border-radius:4px;transition:all 0.2s;}
+    .nav-link:hover{color:var(--text-primary);background:var(--bg-card);}
+
+    /* Theme toggle */
+    .theme-toggle{
+      width:46px;height:46px;border-radius:50%;
+      background:var(--bg-card); border:2px solid var(--border-hover);
+      color:var(--text-primary); cursor:pointer;
+      display:flex;align-items:center;justify-content:center;
+      box-shadow:3px 3px 0 var(--border-hover);
+      transition:all 0.2s ease; flex-shrink:0;
+    }
+    .theme-toggle:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--border-hover);}
+    .theme-toggle svg{width:20px;height:20px;transition:all 0.3s;}
+    .icon-sun{display:none;}
+    .icon-moon{display:block;}
     html.light .icon-sun { display: block; } html.light .icon-moon { display: none; }
-    .nav-links { display: flex; align-items: center; gap: 6px; }
-    .nav-link { font-size: 16px; color: #8888AA; text-decoration: none; padding: 7px 14px; border-radius: 8px; transition: all 0.2s; }
-    .nav-link:hover { color: #F0F0F5; background: rgba(255,255,255,0.06); }
-    .nav-cta { padding: 9px 22px; border-radius: 50px; background: linear-gradient(135deg, var(--gold), var(--amber)); color: #000; font-weight: 700; font-size: 13px; text-decoration: none; transition: all 0.3s; box-shadow: 0 4px 16px rgba(245,184,0,0.3); }
-    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(245,184,0,0.5); }
     @keyframes buzz { 0%,100%{transform:rotate(-5deg) scale(1)} 25%{transform:rotate(5deg) scale(1.12)} 50%{transform:rotate(-3deg) scale(1.06)} 75%{transform:rotate(3deg) scale(1.09)} }
 
     /* ═══ SECTION 1: AGENCY HERO — NEO BRUTALISM DARK ═══ */
@@ -208,11 +245,15 @@
       .st-cards-row { grid-template-columns: repeat(2,1fr); }
       .ag-stats { grid-template-columns: repeat(2,1fr); }
     }
-    @media (max-width:768px) {
+    @media (max-width: 900px) {
+      .agency-hero { padding: 120px 20px 60px; }
+      .ag-headline { font-size: 44px; }
+      .ag-grid-bg { background-size: 30px 30px; }
+      .ag-block-1, .ag-block-2 { display: none; }
       nav { padding: 0 20px; }
-      .nav-links { display: none; }
-      .agency-hero, .bento-section { padding: 80px 20px 60px; }
-      .st-inner { padding: 100px 20px 60px; }
+      .nav-right { display: none; }
+    }
+    @media (max-width:768px) {
       .ag-cards-grid, .bento-grid, .st-cards-row { grid-template-columns: 1fr; }
       .b-card.feat,.b-card.wide { grid-column: span 1; }
       .st-stats-strip { flex-wrap: wrap; gap: 24px; }
@@ -230,7 +271,7 @@
       <img src="logo-dark.png" alt="Digital Bee Logo" class="logo-dark-mode" />
       <img src="logo-light.png" alt="Digital Bee Logo" class="logo-light-mode" />
     </a>
-    <div class="nav-links">
+    <div class="nav-right">
       <a href="homepage.html" class="nav-link">Home</a>
       <a href="services-pricing.html" class="nav-link">Services & Pricing</a>
       <a href="app-development.html" class="nav-link">App Development</a>
@@ -240,7 +281,6 @@
         <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
       </button>
     </div>
-    <a href="mailto:hello@digitalbee.in" class="nav-cta">Get a Quote</a>
   </nav>
 
   <!-- ═══ 1. AGENCY HERO — NEO BRUTALISM DARK ═══ -->
