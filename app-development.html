@@ -14,10 +14,10 @@
     html.light .shutter-top, html.light .shutter-bottom { background: #0A0A0F; }
     body.shutter-open .shutter-top { transform: translateY(-100%); }
     body.shutter-open .shutter-bottom { transform: translateY(100%); }
-    .s-logo-dark { display: block; height: 130px; width: auto; transform: translateY(50%); transition: opacity 0.5s ease; }
-    .s-logo-light { display: none; height: 130px; width: auto; transform: translateY(50%); transition: opacity 0.5s ease; }
-    html.light .s-logo-dark { display: none; }
-    html.light .s-logo-light { display: block; }
+    .s-logo-dark { display: none; height: 130px; width: auto; transform: translateY(50%); transition: opacity 0.5s ease; }
+    .s-logo-light { display: block; height: 130px; width: auto; transform: translateY(50%); transition: opacity 0.5s ease; }
+    html.light .s-logo-dark { display: block; }
+    html.light .s-logo-light { display: none; }
     body.shutter-open .s-logo-dark, body.shutter-open .s-logo-light { opacity: 0; }
     /* ═══ ROOT TOKENS ═══ */
     :root {
@@ -532,7 +532,7 @@
       <a href="homepage.html" class="nav-link">Home</a>
       <a href="services-pricing.html" class="nav-link">All Services</a>
       <a href="app-development.html" class="nav-link" style="color:var(--text-primary);">App Dev</a>
-      <a href="#pricing" class="nav-link">Pricing</a>
+      <a href="services-pricing.html" class="nav-link">Pricing</a>
       <a href="#stack" class="nav-link">Stack</a>
       <a href="#faq" class="nav-link">FAQ</a>
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
@@ -555,7 +555,7 @@
     </h1>
     <p class="hero-sub">From idea to App Store — we design, develop, and launch premium mobile and web applications that your users will love and your business will grow with.</p>
     <div class="hero-actions">
-      <a href="#pricing" class="btn-primary">View Pricing →</a>
+      <a href="services-pricing.html" class="btn-primary">View Pricing →</a>
       <a href="mailto:hello@digitalbee.in" class="btn-secondary">Book a Free Call</a>
     </div>
   </div>
@@ -1054,6 +1054,7 @@
   </script>
 </body>
 </html>
+
 
 
 
