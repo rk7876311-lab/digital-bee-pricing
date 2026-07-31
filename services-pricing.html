@@ -80,8 +80,12 @@
       transition:background 0.35s ease, border-color 0.35s ease;
     }
     .nav-logo{display:flex;align-items:center;text-decoration:none;}
-    .nav-logo img{height:48px;width:auto;object-fit:contain;transition:opacity 0.2s;filter:drop-shadow(0 1px 3px rgba(0,0,0,0.15));}
-    .nav-logo:hover img{opacity:0.85;}
+    .nav-logo img{height:48px;width:auto;object-fit:contain;transition:opacity 0.2s;}
+    .nav-logo:hover img{opacity:0.8;}
+    .logo-dark-mode{display:block;}
+    .logo-light-mode{display:none;}
+    html.light .logo-dark-mode{display:none;}
+    html.light .logo-light-mode{display:block;}
 
     .nav-right{display:flex;align-items:center;gap:10px;}
     .nav-link{font-family:'Exo',sans-serif;font-size:13px;font-weight:600;color:var(--text-secondary);text-decoration:none;padding:7px 14px;border-radius:var(--radius);transition:all 0.2s;}
@@ -393,7 +397,8 @@
   <!-- ═══ NAV ═══ -->
   <nav>
     <a href="homepage.html" class="nav-logo">
-      <img src="logo.png" alt="Digital Bee — Build · Brand · Grow" />
+      <img src="logo-dark.png" alt="Digital Bee" class="logo-dark-mode" />
+      <img src="logo-light.png" alt="Digital Bee" class="logo-light-mode" />
     </a>
     <div class="nav-right">
       <a href="homepage.html" class="nav-link">Home</a>
